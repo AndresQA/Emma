@@ -1,0 +1,43 @@
+.home{
+    width: 100wh;
+    height: 100vh;
+    display: flex;
+}
+
+.home__buttons{
+    display: flex;
+    flex-direction: column;
+    button {
+        margin: 10px 0;
+    }
+}
+
+.home__ltitle{
+    color: #FF7205;
+}
+.home__lrow{
+width: 50%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+align-items: center;
+}
+
+.home__r{
+width: 50%;
+height: 100%;
+}
+
+.home__llogo{
+    width: 200px;
+}
+
+.home__l{
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+align-items: center;
+    }
