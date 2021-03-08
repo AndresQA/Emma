@@ -6,6 +6,10 @@ html, body {
   height: 100%;
 }
 
+a:link, a:visited, a:active {
+  text-decoration: none;
+}
+
 .home {
   width: 100wh;
   height: 100vh;
@@ -29,7 +33,7 @@ html, body {
 }
 
 .home__ltitle {
-  color: #FF7205;
+  color: #ff7205;
 }
 
 .home__lrow {
@@ -54,10 +58,17 @@ html, body {
 .home__r {
   width: 50%;
   height: 100%;
+  background: -prefix-linear-gradient(top, #8349c1, #490462);
+  background: -webkit-gradient(linear, left top, left bottom, from(#8349c1), to(#490462));
+  background: linear-gradient(to bottom, #8349c1, #490462);
+  position: relative;
 }
 
 .home__llogo {
   width: 200px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
 }
 
 .home__l {
@@ -75,5 +86,29 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.home__rEmma {
+  width: 500px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.home__rInfo {
+  color: white;
+  width: 40%;
+  position: absolute;
+  left: 130px;
+  top: 130px;
+  text-align: center;
+}
+
+.home__rInfo h1 {
+  font-size: 50px;
+}
+
+.home__rInfo p {
+  font-size: 20px;
 }
 /*# sourceMappingURL=main.css.map */

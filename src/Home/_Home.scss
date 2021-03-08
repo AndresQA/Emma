@@ -1,10 +1,10 @@
-.home{
+.home {
     width: 100wh;
     height: 100vh;
     display: flex;
 }
 
-.home__buttons{
+.home__buttons {
     display: flex;
     flex-direction: column;
     button {
@@ -12,32 +12,62 @@
     }
 }
 
-.home__ltitle{
-    color: #FF7205;
+.home__ltitle {
+    color: #ff7205;
 }
-.home__lrow{
-width: 50%;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-text-align: center;
-align-items: center;
-}
-
-.home__r{
-width: 50%;
-height: 100%;
+.home__lrow {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
-.home__llogo{
+.home__r {
+    width: 50%;
+    height: 100%;
+    background: -prefix-linear-gradient(top, #8349c1, #490462);
+    background: linear-gradient(to bottom, #8349c1, #490462);
+    position: relative;
+}
+
+.home__llogo {
     width: 200px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
 }
 
-.home__l{
-display: flex;
-flex-direction: column;
-justify-content: center;
-text-align: center;
-align-items: center;
+.home__l {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.home__rEmma {
+    width: 500px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+
+.home__rInfo{
+    color: white;
+    width: 40%;
+    position: absolute;
+    left: 130px;
+    top: 130px;
+    text-align: center;
+
+    h1{
+        font-size: 50px;
     }
+    p{
+        font-size: 20px;
+    }
+}
