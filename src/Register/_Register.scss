@@ -1,21 +1,31 @@
-.home {
+.register {
     width: 100wh;
     height: 100vh;
     display: flex;
 }
 
-.home__buttons {
+.register__buttons {
     display: flex;
     flex-direction: column;
-    button {
+    width: 100%;
+    button  {
+        margin: 10px 0;
+    }
+
+    div{
+        margin: 10px 0;
+    
+       
+    }
+    label{
         margin: 10px 0;
     }
 }
 
-.home__ltitle {
+.register__ltitle {
     color: #ff7205;
 }
-.home__lrow {
+.register__lrow {
     width: 50%;
     height: 100%;
     display: flex;
@@ -25,7 +35,7 @@
     align-items: center;
 }
 
-.home__r {
+.register__r {
     width: 50%;
     height: 100%;
     background: -prefix-linear-gradient(top, #8349c1, #490462);
@@ -33,41 +43,43 @@
     position: relative;
 }
 
-.logo {
-    width: 130px;
-    position: absolute;
-    top: 10px;
-    left: 20px;
-}
 
-.home__l {
+.register__l {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
+    width: 50%;
 }
 
-.home__rEmma {
-    width: 500px;
+.register__rEmma {
+    width: 400px;
     position: absolute;
+    left: 0;
+    right: 0;
     bottom: 0px;
-    right: 0px;
+    margin: auto;
+    
 }
 
 
-.home__rInfo{
+.register__rInfo{
     color: white;
-    width: 40%;
+    width: 70%;
     position: absolute;
-    left: 130px;
-    top: 130px;
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin: auto;
     text-align: center;
 
     h1{
         font-size: 50px;
+        line-height: 48px;
     }
     p{
         font-size: 20px;
     }
+
 }

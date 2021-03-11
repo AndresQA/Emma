@@ -64,8 +64,8 @@ a:link, a:visited, a:active {
   position: relative;
 }
 
-.home__llogo {
-  width: 200px;
+.logo {
+  width: 130px;
   position: absolute;
   top: 10px;
   left: 20px;
@@ -110,5 +110,172 @@ a:link, a:visited, a:active {
 
 .home__rInfo p {
   font-size: 20px;
+}
+
+.register {
+  width: 100wh;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.register__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.register__buttons button {
+  margin: 10px 0;
+}
+
+.register__buttons div {
+  margin: 10px 0;
+}
+
+.register__buttons label {
+  margin: 10px 0;
+}
+
+.register__ltitle {
+  color: #ff7205;
+}
+
+.register__lrow {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.register__r {
+  width: 50%;
+  height: 100%;
+  background: -prefix-linear-gradient(top, #8349c1, #490462);
+  background: -webkit-gradient(linear, left top, left bottom, from(#8349c1), to(#490462));
+  background: linear-gradient(to bottom, #8349c1, #490462);
+  position: relative;
+}
+
+.register__l {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+}
+
+.register__rEmma {
+  width: 400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  margin: auto;
+}
+
+.register__rInfo {
+  color: white;
+  width: 70%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+  margin: auto;
+  text-align: center;
+}
+
+.register__rInfo h1 {
+  font-size: 50px;
+  line-height: 48px;
+}
+
+.register__rInfo p {
+  font-size: 20px;
+}
+
+.test {
+  width: 100wh;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.test h1 {
+  color: #ff7205;
+}
+
+.test__questContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.test__quest {
+  text-align: center;
+}
+
+.test__questCard {
+  width: 260px;
+  height: 280px;
+  border-radius: 32px;
+  margin: 30px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-shadow: 6px 6px 17px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 6px 6px 17px -5px rgba(0, 0, 0, 0.2);
+}
+
+.test__questCard h3 {
+  color: #1C3099;
+}
+
+.test__questCardImage {
+  width: 150px;
 }
 /*# sourceMappingURL=main.css.map */

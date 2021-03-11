@@ -8,7 +8,7 @@ const Home = () => {
         <div className="home">
 
             <div className="home__lrow">
-                <img src="/images/logo.png" alt="" className="home__llogo"></img>
+                <img src="/images/logo.png" alt="" className="logo"></img>
 
 
                 <div className="home__l">
@@ -31,7 +31,7 @@ const Home = () => {
                                 borderRadius: 100,
                                 borderColor: "#8349C1",
                                 padding: "16px",
-                                width: "180px"
+                                width: "180px",
                             }}>
                                 Ingresa
             </Button>
