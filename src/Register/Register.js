@@ -19,7 +19,7 @@ const Register = () => {
                         <TextField id="outlined-basic" label="Correo electronico" variant="outlined" />
                         <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" />
 
-                        <Link to="/test">
+                        <Link to="/inicio">
                             <Button variant="contained" color="secondary" style={{
                                 borderRadius: 100,
                                 backgroundColor: "#8349C1",

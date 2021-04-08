@@ -5,6 +5,8 @@ import Resume from '../Resume/Resume';
 import Login from '../Login/Login';
 import { HashRouter as Router, Route, link } from 'react-router-dom';
 import Test from '../Test/Test';
+import Index from '../Index/Index';
+import News from '../News/News';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/resumen" component={Resume}/>
         <Route path="/iniciarSesion" component={Login}/>
         <Route path="/test" component={Test}/>
+        <Route path="/inicio" component={Index}/>
+
       </Router>
 
 

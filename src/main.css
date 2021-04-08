@@ -1,12 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
-html, body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html,
+body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  width: 100%;
-  height: 100%;
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
-a:link, a:visited, a:active {
+a:link,
+a:visited,
+a:active {
   text-decoration: none;
 }
 
@@ -65,10 +68,10 @@ a:link, a:visited, a:active {
 }
 
 .logo {
-  width: 130px;
+  width: 110px;
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: 16px;
+  left: 40px;
 }
 
 .home__l {
@@ -277,5 +280,106 @@ a:link, a:visited, a:active {
 
 .test__questCardImage {
   width: 150px;
+}
+
+.index {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.index__navbar {
+  width: 100%;
+  height: 70px;
+}
+
+.index__navbar__menuicon {
+  position: absolute;
+  top: 14px;
+  left: 190px;
+}
+
+.index__content {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.index__contentNews {
+  width: 100%;
+}
+
+.index__contentLeftMenu {
+  width: 400px;
+  background-image: linear-gradient(65.14deg, #f849fc 0, #8349c1 100%);
+  padding-top: 30px;
+}
+
+.index__contentRightMenu {
+  background-color: brown;
+  width: 500px;
+}
+
+.index__contentLeftMenu__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 21px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.index__contentLeftMenu__item p {
+  margin: 0;
+}
+
+.index__contentLeftMenu__item svg {
+  margin: 0px 15px;
+}
+
+.index__contentLeftMenu__item div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.index__contentLeftMenu__item .index__menuIcons {
+  margin: 0px 15px;
+  width: 22px;
+  pointer-events: none;
+}
+
+.menuselected {
+  background-color: #7241a6;
+}
+
+.menuItemSelect {
+  font-weight: bold;
 }
 /*# sourceMappingURL=main.css.map */
