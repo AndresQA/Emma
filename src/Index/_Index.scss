@@ -3,16 +3,18 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #faf4fd;
 }
 
 .index__navbar {
     width: 100%;
     height: 70px;
+    background-color: white;
 }
 
 .index__navbar__menuicon {
     position: absolute;
-    top: 14px;
+    top: 6px;
     left: 190px;
 }
 
@@ -32,10 +34,6 @@
     padding-top: 30px;
 }
 
-.index__contentRightMenu {
-    background-color: brown;
-    width: 500px;
-}
 .index__contentLeftMenu__item {
     display: flex;
     color: white;
@@ -45,6 +43,7 @@
     height: 50px;
     border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.4s linear 0.2s;
 
     & p {
         margin: 0;
@@ -68,10 +67,79 @@
     }
 }
 
+.index__contentLeftMenu__item:hover {
+    background-color: #7241a667;
+}
+
 .menuselected {
     background-color: #7241a6;
+    pointer-events: none;
 }
 
 .menuItemSelect {
     font-weight: bold;
+}
+
+.index__contentRightMenu {
+    width: 500px;
+    padding: 0px 20px;
+}
+
+.index__contentRightMenu__card {
+    position: relative;
+    pointer-events: none;
+    height: 95px;
+    background-color: #8349c1;
+    margin: 40px 0px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    & h2 {
+        margin-right: 20px;
+    }
+}
+
+.index__contentRightMenu__cardImg {
+    position: absolute;
+    width: 100px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.index__contentRightMenu__faq {
+    display: flex;
+    background-color: white;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.02), -4px -4px 4px rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    align-items: center;
+    margin: 15px 0px;
+
+    & p {
+        line-height: 1;
+        margin-right: 10px;
+    }
+}
+
+.index__contentRightMenu__faqImg {
+    width: 40px;
+    height: 40px;
+    background-color: orange;
+    margin: 0px 18px; 
+}
+
+.index__contentRightMenu__showMore {
+    width: 100%;
+    height: 50px;
+    background-color: #ff7200;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.02), -4px -4px 4px rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
 }

@@ -6,9 +6,15 @@ import Login from '../Login/Login';
 import { HashRouter as Router, Route, link } from 'react-router-dom';
 import Test from '../Test/Test';
 import Index from '../Index/Index';
-import News from '../News/News';
+import firebase from '../Firebase/Firebase';
+import 'firebase/auth';
+firebase.auth().onAuthStateChanged(user => {
+  //console.log(user);
+})
 
 function App() {
+  
+
   return (
     <div>
       <Router>
