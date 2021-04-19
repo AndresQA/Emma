@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import News from '../News/News';
-import { Route, Link } from 'react-router-dom';
-import { IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Route, Link, Redirect, useHistory } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import FlagIcon from '@material-ui/icons/Flag';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
@@ -11,32 +9,50 @@ import Education from '../Education/Education';
 import SpaceJud from '../SpaceJud/SpaceJud';
 import Comunity from '../Comunity/Comunity';
 import RouteMig from '../RouteMig/RouteMig';
+import firebase from '../Firebase/Firebase';
+import 'firebase/auth';
 
-const Index = () => {
+
+const Main = (props) => {
+    const { setIsLogin } = props;
+
+    const history = useHistory();
+
+    const [pathName, setPathName] = useState(window.location.pathname);
+
+    useEffect(()=>{
+        if(window.location.pathname !== pathName){
+            setPathName(window.location.pathname);
+        }
+    }, [window.location.pathname])
+
+
+    var handleLogOut = () => {
+        firebase.auth().signOut();
+    };
+
     return (
+
         <div className="index">
+
             <div className="index__navbar">
                 <img src="/images/logo.png" alt="" className="logo"></img>
-                <div className="index__navbar__menuicon">
-                    <IconButton edge="start" color="inherit" aria-label="menu">
-                        <MenuIcon fontSize="large"></MenuIcon>
-                    </IconButton>
-                </div>
+              
 
             </div>
             <div className="index__content">
                 <div className="index__contentLeftMenu">
 
-                    <div className="index__contentLeftMenu__item menuselected">
+                    <div className={"index__contentLeftMenu__item" + (pathName.includes("inicio") && pathName.length <= 8 ? " menuselected" : "")}>
                         <Link to="/inicio">
                             <div>
                                 <HomeIcon style={{ color: "#ffffffc7" }}></HomeIcon>
-                                <p className="menuItemSelect">Inicio</p>
+                                <p>Inicio</p>
                             </div>
                         </Link>
                     </div>
 
-                    <div className="index__contentLeftMenu__item">
+                    <div className={"index__contentLeftMenu__item" + (pathName.includes("Ruta_Migratoria") ? " menuselected" : "")}>
                         <Link to="/inicio/Ruta_Migratoria">
                             <div>
                                 <FlagIcon style={{ color: "#ffffffc7" }}></FlagIcon>
@@ -45,7 +61,7 @@ const Index = () => {
                         </Link>
                     </div>
 
-                    <div className="index__contentLeftMenu__item">
+                    <div className={"index__contentLeftMenu__item" + (pathName.includes("Salud") ? " menuselected" : "")}>
                         <Link to="/inicio/Salud">
                             <div>
                                 <LocalHospitalIcon style={{ color: "#ffffffc7" }}></LocalHospitalIcon>
@@ -54,7 +70,7 @@ const Index = () => {
                         </Link>
                     </div>
 
-                    <div className="index__contentLeftMenu__item">
+                    <div className={"index__contentLeftMenu__item" + (pathName.includes("Educacion") ? " menuselected" : "")}>
                         <Link to="/inicio/Educacion">
                             <div>
                                 <img src="/icons/educacion.png" alt="" className="index__menuIcons"></img>
@@ -63,7 +79,7 @@ const Index = () => {
                         </Link>
                     </div>
 
-                    <div className="index__contentLeftMenu__item">
+                    <div className={"index__contentLeftMenu__item" + (pathName.includes("Espacio_Juridico") ? " menuselected" : "")}>
                         <Link to="/inicio/Espacio_Juridico">
                             <div>
                                 <img src="/icons/espajuri.png" alt="" className="index__menuIcons"></img>
@@ -72,7 +88,7 @@ const Index = () => {
                         </Link>
                     </div>
 
-                    <div className="index__contentLeftMenu__item">
+                    <div className={"index__contentLeftMenu__item" + (pathName.includes("Comunidad") ? " menuselected" : "")}>
                         <Link to="/inicio/Comunidad">
                             <div>
                                 <img src="/icons/comunidad.png" alt="" className="index__menuIcons"></img>
@@ -95,41 +111,47 @@ const Index = () => {
 
 
                 <div className="index__contentRightMenu">
-                    <div className="index__contentRightMenu__card">
-                        <img src="/images/cardname.png" alt="" className="index__contentRightMenu__cardImg"></img>
-                        <h2>Hola Laura</h2>
+
+                    <div >
+                        <div className="index__contentRightMenu__card">
+                            <img src="/images/cardname.png" alt="" className="index__contentRightMenu__cardImg"></img>
+                            <h2>Hola Laura</h2>
+                        </div>
+
+                        <div className="index__contentRightMenu__boxfaq">
+                            <div className="index__contentRightMenu__faq">
+                                <p>Se me venció el PEP</p>
+                                <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
+                            </div>
+
+                            <div className="index__contentRightMenu__faq">
+                                <p>Se me venció el salvoconducto</p>
+                                <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
+
+                            </div>
+
+                            <div className="index__contentRightMenu__faq">
+                                <p>Necesito ir a un hospital</p>
+                                <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
+
+                            </div>
+
+                            <div className="index__contentRightMenu__faq">
+                                <p>¿Dónde matricular a mis hijos?</p>
+                                <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
+
+                            </div>
+
+                            <div className="index__contentRightMenu__faq">
+                                <p>Como afiliarme al sistema de salud</p>
+                                <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <h3>Preguntas frecuentes</h3>
-
-                    <div className="index__contentRightMenu__faq">
-                        <div className="index__contentRightMenu__faqImg"></div>
-                        <p>Se me venció el PEP</p>
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <div className="index__contentRightMenu__faqImg"></div>
-                        <p>Se me venció el salvoconducto</p>
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <div className="index__contentRightMenu__faqImg"></div>
-                        <p>Necesito ir a un hospital</p>
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <div className="index__contentRightMenu__faqImg"></div>
-                        <p>¿Dónde matricular a mis hijos?</p>
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <div className="index__contentRightMenu__faqImg"></div>
-                        <p>Como afiliarme al sistema de salud</p>
-                    </div>
-
-                    <div className="index__contentRightMenu__showMore">
-                        <p>Mas preguntas frecuentes </p>
-                    </div>
 
                 </div>
 
@@ -143,4 +165,4 @@ const Index = () => {
 
 }
 
-export default Index;
+export default Main;

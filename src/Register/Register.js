@@ -4,7 +4,7 @@ import { Button, TextField } from '@material-ui/core';
 
 const Register = (props) => {
 
-const {email, setEmail, password, setPassword, handleSignUp} = props;
+    const { email, setEmail, password, setPassword, handleSignUp } = props;
 
 
     return (
@@ -18,9 +18,9 @@ const {email, setEmail, password, setPassword, handleSignUp} = props;
 
                     <h1 className="register__ltitle">Registrate </h1>
                     <div className="register__buttons">
-                        <TextField id="outlined-basic" label="Nombre completo" variant="outlined" value={email} onChange={e => setEmail(e.target.value)}/>
-                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)}/>
-                        <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" value={password} onChange={e => setPassword(e.target.value)}/>
+                        <TextField id="outlined-basic" label="Nombre completo" variant="outlined" />
+                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)} />
+                        <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" value={password} onChange={e => setPassword(e.target.value)} />
 
                         <Link to="/inicio">
                             <Button variant="contained" color="secondary" onClick={handleSignUp} style={{

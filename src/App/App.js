@@ -3,15 +3,35 @@ import Home from '../Home/Home';
 import Register from '../Register/Register';
 import Resume from '../Resume/Resume';
 import Login from '../Login/Login';
-import { HashRouter as Router, Route, link } from 'react-router-dom';
+import { HashRouter as Router, Route, link, Redirect, useHistory, BrowserRouter, Switch } from 'react-router-dom';
 import Test from '../Test/Test';
-import Index from '../Index/Index';
+import Index from '../Main/Main';
 import firebase from '../Firebase/Firebase';
 import 'firebase/auth';
 
 
 function App() {
 
+  return (
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <RouterConfig />
+        </Switch>
+      </BrowserRouter>
+
+
+    </div>
+  );
+}
+
+export default App;
+
+
+const RouterConfig = () => {
+
+
+  const history = useHistory();
 
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
@@ -20,21 +40,43 @@ function App() {
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState('');
 
-  const clearInputs = () =>{
+
+  const [isLoging, setIsLogin] = useState(undefined);
+
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log("usuario logueado");
+        setIsLogin(true)
+      } else {
+        setIsLogin(false)
+        console.log("usuario no registrado");
+      }
+    });
+
+  }, [])
+
+  const clearInputs = () => {
     setEmail('');
     setPassword('');
   }
 
-  const clearError= () => {
+  const clearError = () => {
     setEmailError('');
     setPasswordError('');
   }
 
   const handleLogin = () => {
     clearError();
+
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email, password).then((user) => {
+
+        history.push("/inicio");
+
+      })
       .catch((err) => {
         switch (err.code) {
           case "auth/invalid-email":
@@ -48,6 +90,7 @@ function App() {
         }
       })
   }
+
 
   const handleSignUp = () => {
     clearError();
@@ -71,12 +114,13 @@ function App() {
     firebase.auth().signOut();
   };
 
+
   const authListener = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         clearInputs();
         setUser(user);
-      }else {
+      } else {
         setUser("");
       }
     })
@@ -86,22 +130,19 @@ function App() {
     authListener();
   }, [])
 
+  return <>
+    {
+      isLoging !== undefined && isLoging === false ? <Redirect to="/" /> : isLoging !== undefined && isLoging === true ? <Redirect to={"/inicio"} /> : <></>
+    }
+    {isLoging !== undefined ? <>
+      <Route exact path="/" component={Home} />
+      <Route path="/registro" render={() => <Register email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleSignUp={handleSignUp} />} />
+      <Route path="/resumen" component={Resume} />
+      <Route path="/iniciarSesion" render={() => <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} isLoging={isLoging} setIsLogin={setIsLogin}/>} />
+      <Route path="/test" component={Test} />
+      <Route path="/inicio" component={Index} />
 
-  return (
-    <div>
-      <Router>
-        <Route path="/" exact component={Home} />
-        <Route path="/registro" render={() => <Register email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleSignUp={handleSignUp}/>} />
-        <Route path="/resumen" component={Resume} />
-        <Route path="/iniciarSesion" component={Login} />
-        <Route path="/test" component={Test} />
-        <Route path="/inicio" component={Index} />
+    </> : <></>}
 
-      </Router>
-
-
-    </div>
-  );
+  </>
 }
-
-export default App;

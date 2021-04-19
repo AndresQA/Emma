@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { HashRouter as Router, Route, link, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, link, Link, Redirect } from 'react-router-dom';
 import { Button, TextField } from '@material-ui/core';
+import firebase from '../Firebase/Firebase';
 import 'firebase/auth';
-import { useFirebaseApp } from 'reactfire';
 
 
-const Login = () => {
+const Login = (props) => {
+    const { email, setEmail, password, setPassword, handleLogin } = props;
 
-
-
+ 
     return (
         <div className="register">
 
@@ -21,11 +21,11 @@ const Login = () => {
                     <h1 className="register__ltitle">Iniciar Sesión</h1>
                     <div className="register__buttons">
 
-                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" />
-                        <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" />
+                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)}/>
+                        <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" value={password} onChange={e => setPassword(e.target.value)}/>
 
-                        <Link to="/inicio">
-                            <Button variant="contained" color="secondary" style={{
+                       
+                            <Button variant="contained" color="secondary" onClick={handleLogin} style={{
                                 borderRadius: 100,
                                 backgroundColor: "#8349C1",
                                 padding: "16px",
@@ -33,7 +33,7 @@ const Login = () => {
                             }}>
                                 Ingresar
     </Button>
-                        </Link>
+                        
 
 
 
