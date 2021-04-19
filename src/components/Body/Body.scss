@@ -1,0 +1,82 @@
+.Body {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: #faf4fd;
+
+    position: relative;
+
+    &__faq{
+        position: absolute;
+        right:8px;
+        display: flex;
+        min-width: 360px;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        padding-right: 360px;
+    }
+
+    &__sidebar {
+        display: flex;
+        min-width: 300px;
+        height: 100%;
+        .index__contentLeftMenu {
+            width: 100%;
+            background-image: linear-gradient(65.14deg, #f849fc 0, #8349c1 100%);
+            padding-top: 30px;
+            border-radius: 0px 10px 0px 0px;
+        }
+
+        .index__contentLeftMenu__item {
+            display: flex;
+            color: white;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 10px 21px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.4s linear 0.2s;
+
+            & p {
+                margin: 0;
+            }
+
+            & svg {
+                margin: 0px 15px;
+            }
+
+            & div {
+                display: flex;
+                color: white;
+                justify-content: center;
+                align-items: center;
+            }
+
+            & .index__menuIcons {
+                margin: 0px 15px;
+                width: 22px;
+                pointer-events: none;
+            }
+        }
+
+        .index__contentLeftMenu__item:hover {
+            background-color: #7241a667;
+        }
+
+        .menuselected {
+            background-color: #7241a6;
+            pointer-events: none;
+            font-weight: bold;
+        }
+    }
+}
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Route, link, Link } from 'react-router-dom';
 import { Button, TextField } from '@material-ui/core';
+import './Register.scss';
 
 const Register = (props) => {
 

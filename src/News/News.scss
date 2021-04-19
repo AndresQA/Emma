@@ -1,5 +1,6 @@
 .news {
     padding: 20px 100px;
+    
 }
 
 .carousel {
@@ -13,6 +14,7 @@
     background: linear-gradient(90deg, #441c99 0%, #ba57ca 63.66%, #8849c4 107.22%);
     border-radius: 10px;
     position: relative;
+    top: 14px;
     margin: 0px;
     color: white;
     display: flex;
@@ -51,6 +53,8 @@
 
 .news__bannerCards{
    display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
 }
 
 .news__bannerItems{
@@ -58,6 +62,7 @@
     height: 105px;
     background-image: url('https://github.com/AndresQA/Emma/blob/main/public/images/cardbackground.png?raw=true');
     background-size: cover;
+    margin: 20px 0px;
 }
 
 .news__bannerEmmaImg {

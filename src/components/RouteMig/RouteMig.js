@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './routeMig.scss'
-import PDF from '../components/PDF';
+import PDF from '../PDF';
 
 const RouteMig = () => {
 

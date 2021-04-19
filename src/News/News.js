@@ -1,5 +1,6 @@
 import React from 'react';
-import Carusel from '../Carousel/Carousel';
+import Carusel from '../components/Carousel/Carousel';
+import './News.scss'
 const News = () => {
     return (
         <div className="news">
@@ -16,9 +17,20 @@ const News = () => {
             </div>
             <h1>Lo más buscado</h1>
             <div className="news__bannerCards">
-            <div className="news__bannerItems"></div>
-
+                <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div> <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div> <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div>
+                <div className="news__bannerItems"></div>
+                
             </div>
+
+            
 
             <h1>Noticias</h1>
             <Carusel />

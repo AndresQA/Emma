@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { HashRouter as Router, Route, link, Link, Redirect } from 'react-router-dom';
 import { Button, TextField } from '@material-ui/core';
-import firebase from '../Firebase/Firebase';
+import firebase from '../../constants/Firebase/Firebase';
 import 'firebase/auth';
 
 
@@ -13,8 +13,6 @@ const Login = (props) => {
         <div className="register">
 
             <div className="register__lrow">
-                <img src="/images/logo.png" alt="" className="logo"></img>
-
 
                 <div className="register__l">
 

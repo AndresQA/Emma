@@ -1,5 +1,5 @@
 .index {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,76 +11,21 @@
     height: 70px;
 }
 
-.index__navbar__menuicon {
-    position: absolute;
-    top: 6px;
-    left: 190px;
-}
-
 .index__content {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
 }
 
 .index__contentNews {
     width: 100%;
-}
-.index__contentLeftMenu {
-    width: 400px;
-    background-image: linear-gradient(65.14deg, #f849fc 0, #8349c1 100%);
-    padding-top: 30px;
-    border-radius: 0px 10px 0px 0px;
-}
-
-.index__contentLeftMenu__item {
-    display: flex;
-    color: white;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 10px 21px;
-    height: 50px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.4s linear 0.2s;
-
-    & p {
-        margin: 0;
-    }
-
-    & svg {
-        margin: 0px 15px;
-    }
-
-    & div {
-        display: flex;
-        color: white;
-        justify-content: center;
-        align-items: center;
-    }
-
-    & .index__menuIcons {
-        margin: 0px 15px;
-        width: 22px;
-        pointer-events: none;
-    }
-}
-
-.index__contentLeftMenu__item:hover {
-    background-color: #7241a667;
-}
-
-.menuselected {
-    background-color: #7241a6;
-    pointer-events: none;
-    font-weight: bold;
+    height: 100%;
 }
 
 
 
 .index__contentRightMenu {
-    width: 500px;
     padding: 0px 20px 0 0;
     display: flex;
     align-items: center;

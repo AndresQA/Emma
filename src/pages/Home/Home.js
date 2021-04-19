@@ -1,6 +1,7 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
+import { Button } from '@material-ui/core';
 import { HashRouter as Router, Route, link, Link } from 'react-router-dom';
+import './Home.scss';
 
 
 const Home = () => {
@@ -8,9 +9,6 @@ const Home = () => {
         <div className="home">
 
             <div className="home__lrow">
-                <img src="/images/logo.png" alt="" className="logo"></img>
-
-
                 <div className="home__l">
 
                     <h1 className="home__ltitle">¡Empieza tu camino ahora!</h1>
