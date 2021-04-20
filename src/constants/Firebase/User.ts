@@ -22,26 +22,22 @@ class userConfig {
         this.getUserChangeLocal();
     }
 
-    login(correo: string, pass: string, load?: (login: boolean) => void) {
+    login(correo: string, pass: string, load?: (login: boolean) => void, errorF?: (error: string) => void) {
         this.auth.signInWithEmailAndPassword(correo, pass).then(() => {
             load && load(true);
-        }).catch(() => {
+        }).catch((err) => {
+            errorF && errorF(err.code);
             load && load(false);
         });
     }
 
-    register(correo: string, pass: string, information: { name: string }, load?: (register: boolean) => void) {
+    register(correo: string, pass: string, user:IUserInformation, load?: (register: boolean) => void, errorF?: (error: string) => void) {
 
         this.auth.createUserWithEmailAndPassword(correo, pass).then((userFirebase) => {
             if (userFirebase.user) {
                 this.userFirebase = userFirebase.user;
                 let UID = this.userFirebase.uid;
-                let user = {
-                    nombre: information.name,
-                    correo,
-                    role: "LOCAL"
-                } as IUserInformation;
-
+                
 
                 Database.writeDatabase([
                     DB_ROUTES.USER._THIS,
@@ -54,7 +50,8 @@ class userConfig {
                 });
             }
 
-        }).catch(() => {
+        }).catch((err) => {
+            errorF && errorF(err.code);
             load && load(false);
         });
 
@@ -73,15 +70,15 @@ class userConfig {
                         this.userFirebase.uid,
                         DB_ROUTES.USER.INFORMATION
                     ], (snap) => {
-                            if (snap) {
-                                var information = snap.val();
-                                // console.log("Mi informacion", information)
-                                this.setInformation(information);
-                                load && load(true);
-                            } else {
-                                load && load(false);
-                            }
-                        })
+                        if (snap) {
+                            var information = snap.val();
+                            // console.log("Mi informacion", information)
+                            this.setInformation(information);
+                            load && load(true);
+                        } else {
+                            load && load(false);
+                        }
+                    })
 
                 } else {
                     // No user is signed in.
@@ -95,7 +92,7 @@ class userConfig {
 
     private getDefaultInformation(): IUserInformation {
         return {
-            nombre:""
+            nombre: ""
         }
     }
 

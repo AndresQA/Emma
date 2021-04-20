@@ -1,15 +1,17 @@
 
 import React, { ReactChild, useEffect, useState } from "react";
 import { Link, useHistory } from 'react-router-dom';
-import "./Body.scss";
 import HomeIcon from '@material-ui/icons/Home';
 import FlagIcon from '@material-ui/icons/Flag';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import RLink from "../../constants/Routes/RLink";
 import AppContext from "../../App/AppContext";
+import User from "../../constants/Firebase/User";
+import PanelInformation from "../PanelInformation/PanelInformation";
 
+import "./Body.scss";
 
-const Body = (props: { children: ReactChild[] | ReactChild }) => {
+const Body = (props) => {
 
     const { useLogin, useStyle } = AppContext.Consumer();
     const [isLogin] = useLogin();
@@ -18,7 +20,7 @@ const Body = (props: { children: ReactChild[] | ReactChild }) => {
     return <div className={"Body" + (isLogin === false ? " login" : "")}>
         {isLogin === true ? <Sidebar /> : <></>}
         <Contenido {...props} />
-        {isLogin === true ? <Faq /> : <></>}
+        {isLogin === true ? <PanelInformation/> : <></>}
 
     </div>
 }
@@ -26,7 +28,7 @@ const Body = (props: { children: ReactChild[] | ReactChild }) => {
 export default Body;
 
 
-const Contenido = ({ children }: { children: ReactChild[] | ReactChild }) => {
+const Contenido = ({ children }) => {
     return <div className="Body__content">
         {Array.isArray(children) ? children.map(c => { return c }) : children}
     </div>
@@ -103,52 +105,3 @@ const Sidebar = () => {
     </div>
 }
 
-
-const Faq = () => {
-    return <div className="Body__faq">
-        <div className="index__contentRightMenu">
-
-            <div >
-                <div className="index__contentRightMenu__card">
-                    <img src="/images/cardname.png" alt="" className="index__contentRightMenu__cardImg"></img>
-                    <h2>Hola Laura</h2>
-                </div>
-
-                <div className="index__contentRightMenu__boxfaq">
-                    <div className="index__contentRightMenu__faq">
-                        <p>Se me venció el PEP</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <p>Se me venció el salvoconducto</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <p>Necesito ir a un hospital</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <p>¿Dónde matricular a mis hijos?</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <p>Como afiliarme al sistema de salud</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-    </div>
-}

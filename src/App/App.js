@@ -12,13 +12,17 @@ import Header from '../components/Header/Header';
 import Body from '../components/Body/Body';
 import AppContext, { AppContextProvider } from "./AppContext";
 import RLink from '../constants/Routes/RLink';
+import User from '../constants/Firebase/User';
+import LoginContext, { LoginContextProvider } from './LoginContext';
 
 
 
 const App = () => {
 
   return <AppContextProvider>
-    <AppLoad />
+    <LoginContextProvider>
+      <AppLoad />
+    </LoginContextProvider>
   </AppContextProvider>
 }
 
@@ -45,10 +49,11 @@ const RouterConfig = () => {
   const history = useHistory();
 
   const { useLogin } = AppContext.Consumer();
+  const { useUser, useEmail, usePassword } = LoginContext.Consumer();
 
-  const [user, setUser] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useUser();
+  const [email, setEmail] = useEmail();
+  const [password, setPassword] = usePassword();
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState('');
@@ -83,45 +88,48 @@ const RouterConfig = () => {
   const handleLogin = () => {
     clearError();
 
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password).then((user) => {
 
+    User.login(email, password, (isLogin) => {
+      if (isLogin) {
         history.push("/inicio");
+      } else {
 
-      })
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found":
-            setEmailError(err.message);
-            break;
-          case "auth/wrong-password":
-            setPassword(err.message);
-            break;
-        }
-      })
+      }
+    }, (err) => {
+      switch (err) {
+        case "auth/invalid-email":
+        case "auth/user-disabled":
+        case "auth/user-not-found":
+          setEmailError(err.message);
+          break;
+        case "auth/wrong-password":
+          setPassword(err.message);
+          break;
+      }
+    })
   }
 
 
   const handleSignUp = () => {
     clearError();
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/email-already-in-use":
-          case "auth/invalid-email":
-            setEmailError(err.message);
-            break;
-          case "auth/weak-password":
-            setPassword(err.message);
-            break;
-        }
-      })
-  };
+
+    User.register(email, password, {
+      nombre: user
+    }, () => {
+
+    }, (err) => {
+      switch (err) {
+        case "auth/invalid-email":
+        case "auth/user-disabled":
+        case "auth/user-not-found":
+          setEmailError(err.message);
+          break;
+        case "auth/wrong-password":
+          setPassword(err.message);
+          break;
+      }
+    })
+  }
 
   const handleLogOut = () => {
     firebase.auth().signOut();

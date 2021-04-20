@@ -13,22 +13,8 @@ import "./Main.scss";
 
 
 const Main = (props) => {
-    const { setIsLogin } = props;
 
-    const history = useHistory();
-    /*
-        const [pathName, setPathName] = useState(window.location.pathname);
-    
-        useEffect(()=>{
-            if(window.location.pathname !== pathName){
-                setPathName(window.location.pathname);
-            }
-        }, [window.location.pathname])
-    */
 
-    var handleLogOut = () => {
-        firebase.auth().signOut();
-    };
 
     return (
 
