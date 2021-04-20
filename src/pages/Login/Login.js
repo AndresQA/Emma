@@ -8,7 +8,7 @@ import 'firebase/auth';
 const Login = (props) => {
     const { email, setEmail, password, setPassword, handleLogin } = props;
 
- 
+
     return (
         <div className="register">
 
@@ -19,19 +19,19 @@ const Login = (props) => {
                     <h1 className="register__ltitle">Iniciar Sesión</h1>
                     <div className="register__buttons">
 
-                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)}/>
-                        <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" value={password} onChange={e => setPassword(e.target.value)}/>
+                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)} />
+                        <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" value={password} onChange={e => setPassword(e.target.value)} />
 
-                       
-                            <Button variant="contained" color="secondary" onClick={handleLogin} style={{
-                                borderRadius: 100,
-                                backgroundColor: "#8349C1",
-                                padding: "16px",
-                                width: "180px"
-                            }}>
-                                Ingresar
+
+                        <Button variant="contained" color="secondary" onClick={handleLogin} style={{
+                            borderRadius: 100,
+                            backgroundColor: "#8349C1",
+                            padding: "16px",
+                            width: "180px"
+                        }}>
+                            Ingresar
     </Button>
-                        
+
 
 
 

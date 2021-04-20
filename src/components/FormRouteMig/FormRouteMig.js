@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './FormRouteMig.scss'
 import { Route, Link, Redirect, useHistory } from 'react-router-dom';
+import { TextField } from '@material-ui/core';
 
 const FormRouteMig = () => {
 
@@ -8,16 +9,17 @@ const FormRouteMig = () => {
 
     return (
         <div className="formRouteMig">
-           <h1>Solicitud de Refugio</h1>
+            <h1>Solicitud de Refugio</h1>
 
-           <form action="">
-               <h4>Datos personales</h4>
-               <div className="fullName">
-                   <p></p>
+            <form action="">
+                <h4>Datos personales</h4>
+                <hr/>
+                <div className="fullName">
+                    <p>Nombre completo del solicitante</p>
+                    <TextField id="outlined-basic" label="nombre completo" variant="outlined" />
 
-               </div>
-               <hr/>
-           </form>
+                </div>
+            </form>
         </div>
 
     )
