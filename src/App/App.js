@@ -44,6 +44,8 @@ const RouterConfig = () => {
 
   const history = useHistory();
 
+  const { useLogin } = AppContext.Consumer();
+
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -52,7 +54,7 @@ const RouterConfig = () => {
   const [hasAccount, setHasAccount] = useState('');
 
 
-  const [isLoging, setIsLogin] = useState(undefined);
+  const [isLoging, setIsLogin] = useLogin();
 
 
   useEffect(() => {
@@ -143,7 +145,7 @@ const RouterConfig = () => {
 
   const pathName = window.location.pathname;
 
-  const {usePathname} = AppContext.Consumer();
+  const { usePathname } = AppContext.Consumer();
   const [pageName, setPathName] = usePathname();
 
   return <>
@@ -152,7 +154,7 @@ const RouterConfig = () => {
         isLoging !== undefined &&
         (isLoging === true &&
           (pathName.includes("registro") ||
-          pathName.includes("iniciarSesion")
+            pathName.includes("iniciarSesion")
 
 
             || pathName.length < 2))) ? (() => {

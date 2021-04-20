@@ -7,6 +7,15 @@
 
     position: relative;
 
+    &.login{
+        .Body{
+            &__content{
+                padding-right: 0px;
+                overflow-y: visible;
+            }
+        }
+    }
+
     &__faq{
         position: absolute;
         right:8px;

@@ -11,12 +11,15 @@ import AppContext from "../../App/AppContext";
 
 const Body = (props: { children: ReactChild[] | ReactChild }) => {
 
+    const { useLogin, useStyle } = AppContext.Consumer();
+    const [isLogin] = useLogin();
+    const [style] = useStyle();
 
-
-    return <div className="Body">
-        <Sidebar />
+    return <div className={"Body" + (isLogin === false ? " login" : "")}>
+        {isLogin === true ? <Sidebar /> : <></>}
         <Contenido {...props} />
-        <Faq />
+        {isLogin === true ? <Faq /> : <></>}
+
     </div>
 }
 

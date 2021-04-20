@@ -12,8 +12,6 @@ const Register = (props) => {
         <div className="register">
 
             <div className="register__lrow">
-                <img src="/images/logo.png" alt="" className="logo"></img>
-
 
                 <div className="register__l">
 

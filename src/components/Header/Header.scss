@@ -5,6 +5,12 @@
     height: 70px;
     background: #faf4fd;
 
+    &.float{
+        position: absolute;
+        z-index: 1000;
+        background: none;
+    }
+
     &__logo {
         height: 80%;
 
