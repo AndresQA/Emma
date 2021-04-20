@@ -1,9 +1,20 @@
 import React from 'react';
 
 const Education = () => {
-    return(
+    return (
         <div >
-            <h1>Educacion</h1>
+            <h1>Tramites</h1>
+            <div className="news__bannerCards">
+                <div className="news__bannerItems">
+                    <h4>Urgencia Medica</h4>
+                </div>
+                <div className="news__bannerItems">
+                    <h4>Solicitud de Refugio</h4>
+                </div>
+                <div className="news__bannerItems">
+                    <h4>Renovación PEP</h4>
+                </div>
+            </div>
         </div>
 
     )

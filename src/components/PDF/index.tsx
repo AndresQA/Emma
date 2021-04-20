@@ -64,7 +64,7 @@ const PDF = () => {
 
         <PDFDownloadLink document={<Documento />} fileName="formato.pdf">
             {({ blob, url, loading, error }) =>
-                loading ? 'Loading document...' : 'Download now!'
+                loading ? 'Loading document...' : 'Descargar el documento'
             }
         </PDFDownloadLink>
     </div >

@@ -15,22 +15,36 @@ const News = () => {
                     <p>Chat</p>
                 </div>
             </div>
-            <h1>Lo más buscado</h1>
+            <h1 className="firstTitle">Lo más buscado</h1>
             <div className="news__bannerCards">
-                <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div> <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div> <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div>
-                <div className="news__bannerItems"></div>
-                
+                <div className="news__bannerItems">
+                    <h4>Urgencia Medica</h4>
+                    <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
+                </div>
+                <div className="news__bannerItems">
+                    <h4>Solicitud de Refugio</h4>
+                    <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
+                </div>
+                <div className="news__bannerItems">
+                    <h4>Renovación PEP</h4>
+                    <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
+                </div>
+                <div className="news__bannerItems">
+                    <h4>Afiliación a la Salud</h4>
+                    <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
+                </div>
+                <div className="news__bannerItems">
+                    <h4>Homologación de Titulos</h4>
+                    <img src="/icons/educacion.png" className="news__bannerItems__icon" alt="" />
+                </div>
+                <div className="news__bannerItems">
+                    <h4>Educación de menores</h4>
+                    <img src="/icons/educacion.png" className="news__bannerItems__icon" alt="" />
+                </div>
+
             </div>
 
-            
+
 
             <h1>Noticias</h1>
             <Carusel />
