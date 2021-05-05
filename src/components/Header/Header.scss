@@ -4,8 +4,9 @@
     width: 100%;
     height: 70px;
     background: #faf4fd;
+    position: relative;
 
-    &.float{
+    &.float {
         position: absolute;
         z-index: 1000;
         background: none;
@@ -16,4 +17,11 @@
 
         padding-left: 35px;
     }
+
+}
+
+.singOut {
+   position: absolute;
+   right: 35px;
+   cursor: pointer;
 }

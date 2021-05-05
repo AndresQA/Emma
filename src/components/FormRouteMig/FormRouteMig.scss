@@ -1,10 +1,96 @@
-.formRouteMig{
-
-    h1{
+.formRouteMig {
+    h1 {
         margin: 0px;
     }
-    h4{
+    h4 {
         margin: 0px;
         margin-bottom: 5px;
+    }
+
+    .formRow {
+        display: flex;
+        align-items: flex-end;
+    }
+    .fullName {
+        width: 50%;
+        margin-right: 20px;
+    }
+
+    .MuiInputBase-input {
+        box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.07) !important;
+        background-color: white !important;
+    }
+}
+
+.fullName__textfield {
+    width: 100%;
+}
+
+.tel {
+    margin-right: 20px;
+    width: 50%;
+}
+
+.email {
+    width: 100%;
+}
+.emailinput {
+    width: 100%;
+}
+
+.formadeingreso {
+    width: 100%;
+}
+
+.Cformadeingreso {
+    margin-right: 20px;
+}
+
+.CLugarIngreso {
+    margin-right: 40px;
+}
+
+.lugarIngreso {
+    width: 100%;
+}
+
+.ingresoColombiaTitle {
+    margin-top: 20px !important;
+}
+
+.lastButton {
+    width: 100%;
+    padding: 30px 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nextBtn {
+    background-color: #ff7200 !important;
+    color: white !important;
+}
+
+.addBenButton {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.addBenBtn {
+    background-color: #00c2b6 !important;
+    color: white !important;
+}
+
+.download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .nextBtn {
+        margin-top: 10px;
+    }
+
+    .downloadImg {
+        margin-top: 20px;
     }
 }

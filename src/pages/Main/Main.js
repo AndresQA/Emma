@@ -7,7 +7,6 @@ import SpaceJud from '../../components/SpaceJud/SpaceJud';
 import Comunity from '../../components/Comunity/Comunity';
 import RouteMig from '../../components/RouteMig/RouteMig';
 import FormRouteMig from '../../components/FormRouteMig/FormRouteMig';
-import firebase from '../../constants/Firebase/Firebase';
 import 'firebase/auth';
 import "./Main.scss";
 

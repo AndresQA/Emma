@@ -5,6 +5,7 @@ import User from '../../constants/Firebase/User';
 const Faq = () => {
 
     const [nombre, setNombre] = useState(User.information.nombre);
+    console.log(User.information.nombre)
 
     return <div className="Body__faq">
         <div className="index__contentRightMenu">
