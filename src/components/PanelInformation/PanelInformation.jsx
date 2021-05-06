@@ -10,7 +10,7 @@ const PanelInformation = () => {
 
     const { useFaq } = AppContext.Consumer();
 
-    const [type] = useFaq();
+    const [type, setType] = useFaq();
 
     switch (type) {
         case "Faq":

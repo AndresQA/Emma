@@ -49,6 +49,7 @@ const RouterConfig = () => {
   const history = useHistory();
 
   const { useLogin } = AppContext.Consumer();
+  const [isLoging, setIsLogin] = useLogin();
   const { useUser, useEmail, usePassword } = LoginContext.Consumer();
 
   const [user, setUser] = useUser();
@@ -59,11 +60,11 @@ const RouterConfig = () => {
   const [hasAccount, setHasAccount] = useState('');
 
 
-  const [isLoging, setIsLogin] = useLogin();
+  
 
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
+   User.getUserChangeLocal(user => {
       if (user) {
         console.log("usuario logueado");
         setIsLogin(true)

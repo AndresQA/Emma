@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import AppContext from '../../App/AppContext';
 import User from '../../constants/Firebase/User';
 
 
 const Faq = () => {
 
-    const [nombre, setNombre] = useState(User.information.nombre);
-    console.log(User.information.nombre)
+    const [nombre, setNombre] = useState("Nombre de usuario");
+
+
+    const { useLogin } = AppContext.Consumer();
+    const [isLoging, setIsLogin] = useLogin();
+
+    useEffect(() => {
+        
+        setNombre(User.information.nombre)
+    }, [isLoging])
 
     return <div className="Body__faq">
         <div className="index__contentRightMenu">

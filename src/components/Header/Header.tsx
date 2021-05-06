@@ -10,15 +10,17 @@ const Header = () => {
 
     const { useLogin, useStyle } = AppContext.Consumer();
     const [style] = useStyle();
-    const [login] = useLogin()
+    const [login, setLogin] = useLogin()
 
     var handleLogOut = () => {
-        User.loginOut(()=>{})
+        User.loginOut(() => {
+            setLogin(false)
+        })
     };
 
     return <div className={"Header" + (style.header === "FLOAT" ? " float" : "")}>
         <img className="Header__logo" src="/images/logo.png" alt="logo" />
-       {login === true ? <p className="singOut" onClick={handleLogOut}>Cerrar Sesion</p> : <></> }
+        {login === true ? <p className="singOut" onClick={handleLogOut}>Cerrar Sesion</p> : <></>}
     </div>
 }
 

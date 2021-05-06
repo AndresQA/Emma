@@ -24,20 +24,23 @@ class userConfig {
 
     login(correo: string, pass: string, load?: (login: boolean) => void, errorF?: (error: string) => void) {
         this.auth.signInWithEmailAndPassword(correo, pass).then(() => {
-            load && load(true);
+            this.getUserChangeLocal(() => {
+                load && load(true);
+            });
+
         }).catch((err) => {
             errorF && errorF(err.code);
             load && load(false);
         });
     }
 
-    register(correo: string, pass: string, user:IUserInformation, load?: (register: boolean) => void, errorF?: (error: string) => void) {
+    register(correo: string, pass: string, user: IUserInformation, load?: (register: boolean) => void, errorF?: (error: string) => void) {
 
         this.auth.createUserWithEmailAndPassword(correo, pass).then((userFirebase) => {
             if (userFirebase.user) {
                 this.userFirebase = userFirebase.user;
                 let UID = this.userFirebase.uid;
-                
+
 
                 Database.writeDatabase([
                     DB_ROUTES.USER._THIS,
@@ -62,7 +65,7 @@ class userConfig {
             this.auth.onAuthStateChanged((user: firebase.User | null) => {
                 if (user) {
                     // User is signed in.
-                    this.userFirebase = user;
+                    this.userFirebase = user
 
                     Database.readBrachOnlyDatabase([
                         DB_ROUTES.USER._THIS,
@@ -70,9 +73,12 @@ class userConfig {
                         this.userFirebase.uid,
                         DB_ROUTES.USER.INFORMATION
                     ], (snap) => {
+
                         if (snap) {
                             var information = snap.val();
-                            // console.log("Mi informacion", information)
+                           // console.clear()
+                           // console.log("Mi informacion", information)
+
                             this.setInformation(information);
                             load && load(true);
                         } else {

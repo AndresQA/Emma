@@ -9,15 +9,19 @@ import RouteMig from '../../components/RouteMig/RouteMig';
 import FormRouteMig from '../../components/FormRouteMig/FormRouteMig';
 import 'firebase/auth';
 import "./Main.scss";
+import AppContext from '../../App/AppContext';
 
 
 const Main = (props) => {
 
+    const { useLogin } = AppContext.Consumer();
+    const [isLoging, setIsLogin] = useLogin();
 
 
     return (
 
-        <div className="index">
+        isLoging === true ? <div className="index">
+
             <Route path="/inicio" exact component={News} />
             <Route path="/inicio/Ruta_Migratoria" exact component={RouteMig} />
             <Route path="/inicio/Salud" exact component={Health} />
@@ -26,6 +30,7 @@ const Main = (props) => {
             <Route path="/inicio/Comunidad" exact component={Comunity} />
             <Route path="/inicio/Ruta_Migratoria/formulario" exact component={FormRouteMig} />
         </div>
+            : <Redirect to="/" />
 
     )
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FormRouteMig.scss'
 import { Route, Link, Redirect, useHistory } from 'react-router-dom';
 import { Button, FormControl, InputLabel, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
@@ -11,32 +11,57 @@ import {
 import 'date-fns';
 import AddIcon from '@material-ui/icons/Add';
 import PDF from '../PDF';
+import AppContext from '../../App/AppContext';
+import User from '../../constants/Firebase/User';
 
 
 const FormRouteMig = () => {
+    const { useFaq, useDataForms, useLogin } = AppContext.Consumer();
 
+    const [nombre, setNombre] = useState("Nombre de usuario");
+
+    const [isLoging, setIsLogin] = useLogin();
+
+    useEffect(() => {
+        
+        setNombre(User.information.nombre)
+        setDataForms({ ...dataForms, nombreSolicitante: User.information.nombre })
+    }, [isLoging])
+
+
+    const [type, Step] = useFaq();
+
+    const [dataForms, setDataForms] = useDataForms();
+
+    const { formaIngreso, lugarIngreso, selectedDate, nombreSolicitante, } = dataForms;
 
     const [page, setPage] = React.useState(1);
-    const [formaIngreso, setformaIngreso] = React.useState('');
-    const [lugarIngreso, setLugarIngreso] = React.useState('');
-    const [selectedDate, setSelectedDate] = React.useState(new Date());
-
+    /*
+    const [formaIngreso, setformaIngreso] = React.useState(dataForms.formaIngreso);
+    const [lugarIngreso, setLugarIngreso] = React.useState(dataForms.lugarIngreso);
+    const [selectedDate, setSelectedDate] = React.useState(dataForms.fe);
+*/
     const handlePageChange = (index) => {
         setPage(index);
     }
+
     console.log(page);
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
+    const handleDateChange = (selectedDate) => {
+        //setSelectedDate(date);
+        setDataForms({ ...dataForms, selectedDate })
     };
 
 
     const handleChangeFormaIngreso = (event) => {
-        setformaIngreso(event.target.value);
+        //setformaIngreso(event.target.value);
+        setDataForms({ ...dataForms, formaIngreso: event.target.value })
     };
 
     const handleChangeLugarIngreso = (event) => {
-        setLugarIngreso(event.target.value);
+        //setLugarIngreso(event.target.value);
+        setDataForms({ ...dataForms, lugarIngreso: event.target.value })
+
     };
     switch (page) {
         case 1:
@@ -48,8 +73,10 @@ const FormRouteMig = () => {
                     <div className="formRow">
                         <div className="fullName">
                             <p>Nombre completo del solicitante</p>
-                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined"
-                                placeholder="Ej: Michael Rojas" />
+                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" value={nombre} disabled
+                                placeholder="Ej: Michael Rojas" onChange={() => {
+                                    setDataForms({ ...dataForms, nombreSolicitante: nombre })
+                                }} />
                         </div>
                         <div className="ident">
                             <p>Número de cédula de identidad venezolana</p>
@@ -249,11 +276,7 @@ const FormRouteMig = () => {
                 <h1>Solicitud de Refugio</h1>
                 <h4>Descargar Solicitud</h4>
                 <hr />
-                <div className="download">
-                    <img className="downloadImg" src="/images/descargar.png" alt="Descargar" />
-                    <Button className="nextBtn" variant="contained">Descargar</Button>
 
-                </div>
                 <PDF></PDF>
             </div>
             break;
