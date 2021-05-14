@@ -39,7 +39,7 @@ export const AppContextProvider = (props: Props<any>) => {
     const [style, setStyle] = useState<IStylePage>({
         header: "DEFAULT"
     });
-    const [faq, setFaq] = useState<IFAQ>("Faq");
+    const [faq, setFaq] = useState<IFAQ>("Step");
 
     const [isLoging, setIsLogin] = useState<undefined | boolean>(undefined);
 

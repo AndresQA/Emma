@@ -1,0 +1,131 @@
+.panelInfo_Tittle {
+    margin: 0px;
+}
+
+hr {
+    color: #d9dbe9;
+}
+
+.index__contentRightMenu__boxfaq {
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.02), -4px -4px 4px rgba(0, 0, 0, 0.02);
+    width: 100%;
+    margin-top: 35px;
+}
+
+.index__contentRightMenu__faq {
+    display: flex;
+    align-items: center !important;
+    margin: 0px;
+
+
+}
+
+.index__contentRightMenu__faqImg {
+    width: 61px;
+    height: 61px;
+}
+
+.notificationInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80px;
+    margin-left: 10px;
+    h4{
+        margin: 0px;
+    }    
+    p{
+        margin: 0px;
+        margin-top: 10px;
+        padding: 0px;
+
+        line-height: 1 !important;
+    }
+}
+
+
+.index__contentRightMenu__boxHead{
+    height: 20px;
+    background-color: blue;
+}
+
+
+.index__contentRightMenu__boxSteps {
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.02), -4px -4px 4px rgba(0, 0, 0, 0.02);
+}
+
+
+.index__contentRightMenu__card {
+    height: 55px;
+    background: linear-gradient(180deg, #8349C1 0%, #5F368B 100%);    margin-top: 40px;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    
+}
+
+.titleStep{
+    width: 100%;
+}
+
+.progressBarGrey{
+    height: 10px;
+    background-color: #EFF0F6;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.progressBarColor{
+    height: 10px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    position: absolute;
+    left: 0px;
+    width: 50%;
+}
+
+.index__contentRightMenu__boxProgessBar{
+    position: relative;
+    p{
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+}
+
+.circle{
+    width: 18px;
+    height: 18px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    border-color:  gray;
+}
+
+.infoSteps{
+    display: flex;
+    align-items: center;
+
+    p{
+        margin-left: 20px;
+    }
+}
+
+
+
+.stepCompleted{
+    color: blueviolet;
+}
+
+.circleCompleted{
+    border-color:  blueviolet;
+}

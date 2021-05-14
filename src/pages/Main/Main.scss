@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     background-color: #faf4fd;
-    padding: 0px 50px;
+    padding: 0px 60px 0px 40px;
 }
 
 .index__navbar {
@@ -32,64 +32,10 @@
     align-items: center;
 }
 
-.index__contentRightMenu__boxfaq {
-    background-color: white;
-    padding: 30px 10px;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.02), -4px -4px 4px rgba(0, 0, 0, 0.02);
-}
 
-.index__contentRightMenu__card {
-    position: relative;
-    pointer-events: none;
-    height: 95px;
-    background-color: #8349c1;
-    margin-top: 40px;
-    border-radius: 10px 10px 0px 0px;
-    color: white;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 
-    & h2 {
-        margin-right: 20px;
-    }
-    
-}
 
-.index__contentRightMenu__cardImg {
-    position: absolute;
-    width: 100px;
-    bottom: 0px;
-    left: 0px;
-}
 
-.index__contentRightMenu__faq:first-child {
-    margin-top: 0px;
-}
-
-.index__contentRightMenu__faq {
-    display: flex;
-    background-color: white;
-    box-shadow: -1px -1px 2px rgba(134, 141, 170, 0.15), 1px 1px 2px rgba(134, 141, 170, 0.15);
-    border-radius: 10px;
-    align-items: center !important;
-    justify-content: space-between;
-    margin: 15px 0px;
-
-    & p {
-        line-height: 1 !important;
-        margin-left: 10px !important;
-        font-weight: 400 !important;
-        margin: 0 !important;
-        padding: 15px 10px;
-    }
-}
-
-.index__contentRightMenu__faqImg {
-    width: 40px;
-    height: 40px;
-}
 
 .index__contentRightMenu__showMore {
     width: 100%;
