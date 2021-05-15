@@ -137,9 +137,9 @@ const FormRouteMig = () => {
                                     <MenuItem value="">
                                         <em>Seleccionar</em>
                                     </MenuItem>
-                                    <MenuItem value={10}>Opcion A</MenuItem>
+                                    <MenuItem value={10}>Nariño</MenuItem>
                                     <MenuItem value={20}>Cucuta</MenuItem>
-                                    <MenuItem value={30}>Opcion C</MenuItem>
+                                    <MenuItem value={30}>Santander</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>

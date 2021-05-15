@@ -1,15 +1,12 @@
 .news {
-   
 }
 
-.firstTitle{
+.firstTitle {
     margin-top: 60px !important;
-
 }
 
-h1{
-    color: #3D4454;
-
+h1 {
+    color: #3d4454;
 }
 
 .carousel {
@@ -56,35 +53,50 @@ h1{
     cursor: pointer;
 }
 
-.news__banner__text{
+.news__banner__text {
     margin-left: 130px;
 }
 
-.news__bannerCards{
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
+.news__bannerCards {
+    display: grid;
+    grid-gap: 20px 60px;
+    grid-template-columns: repeat(4, 0fr);
+
 }
 
-.news__bannerItems{
+@media (max-width: 1895px) {
+    .news__bannerCards {
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+}
+
+@media (max-width: 1620px) {
+    .news__bannerCards {
+        grid-template-columns: repeat(2, 1fr);
+ 
+    }
+}
+
+.news__bannerItems {
     cursor: pointer;
     border-radius: 10px;
     width: 240px;
     height: 105px;
-    background-image: url('https://github.com/AndresQA/Emma/blob/main/public/images/cardbackground.png?raw=true');
+    background-image: url("https://github.com/AndresQA/Emma/blob/main/public/images/cardbackground.png?raw=true");
     background-size: cover;
     margin: 20px 0px;
     color: white;
     position: relative;
 
-    h4{
+    h4 {
         margin-top: 10px;
         margin-left: 20px;
         margin-right: 20px;
     }
 }
 
-.news__bannerItems__icon{
+.news__bannerItems__icon {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -101,5 +113,3 @@ a:visited,
 a:active {
     text-decoration: none;
 }
-
-
