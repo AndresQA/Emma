@@ -23,7 +23,7 @@ const FormRouteMig = () => {
     const [isLoging, setIsLogin] = useLogin();
 
     useEffect(() => {
-        
+
         setNombre(User.information.nombre)
         setDataForms({ ...dataForms, nombreSolicitante: User.information.nombre })
     }, [isLoging])
@@ -33,7 +33,7 @@ const FormRouteMig = () => {
 
     const [dataForms, setDataForms] = useDataForms();
 
-    const { formaIngreso, lugarIngreso, selectedDate, nombreSolicitante, } = dataForms;
+    const { formaIngreso, lugarIngreso, selectedDate, cedulaPersona, telefono, correoSolicitante, direccionResidencia, nombreSolicitante, } = dataForms;
 
     const [page, setPage] = React.useState(1);
     /*
@@ -63,6 +63,28 @@ const FormRouteMig = () => {
         setDataForms({ ...dataForms, lugarIngreso: event.target.value })
 
     };
+
+    const handleChangeCedulaPersona = (event) => {
+        //setLugarIngreso(event.target.value);
+        setDataForms({ ...dataForms, cedulaPersona: event.target.value })
+
+    };
+
+    const handleChangeTelefono = (event) => {
+        //setLugarIngreso(event.target.value);
+        setDataForms({ ...dataForms, telefono: event.target.value })
+
+    };
+    
+    const handleChangeCorreoSolicitante = (event) => {
+        //setLugarIngreso(event.target.value);
+        setDataForms({ ...dataForms, correoSolicitante: event.target.value })
+    };
+
+    const handleChangeDireccionResidencia = (event) => {
+        //setLugarIngreso(event.target.value);
+        setDataForms({ ...dataForms, direccionResidencia: event.target.value })
+    };
     switch (page) {
         case 1:
             return <div className="formRouteMig">
@@ -74,31 +96,29 @@ const FormRouteMig = () => {
                         <div className="fullName">
                             <p>Nombre completo del solicitante</p>
                             <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" value={nombre} disabled
-                                placeholder="Ej: Michael Rojas" onChange={() => {
-                                    setDataForms({ ...dataForms, nombreSolicitante: nombre })
-                                }} />
+                                placeholder="Ej: Michael Rojas"/>
                         </div>
                         <div className="ident">
                             <p>Número de cédula de identidad venezolana</p>
-                            <TextField id="outlined-basic" variant="outlined" />
+                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeCedulaPersona} />
                         </div>
                     </div>
 
                     <div className="formRow">
                         <div className="tel">
                             <p>Telefono</p>
-                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" />
+                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" onChange={handleChangeTelefono} />
                         </div>
                         <div className="email">
                             <p>Correo electronico del solicitante</p>
-                            <TextField className="emailinput" id="outlined-basic" variant="outlined" />
+                            <TextField className="emailinput" id="outlined-basic" variant="outlined" onChange={handleChangeCorreoSolicitante}/>
                         </div>
                     </div>
 
                     <div className="formRow">
                         <div className="email">
                             <p>Dirección de residencía</p>
-                            <TextField className="emailinput" id="outlined-basic" variant="outlined" />
+                            <TextField className="emailinput" id="outlined-basic" variant="outlined" onChange={handleChangeDireccionResidencia} />
                         </div>
                     </div>
                     <h4 className="ingresoColombiaTitle">Ingreso a Colombia</h4>

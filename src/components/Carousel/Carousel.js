@@ -15,15 +15,15 @@ var Carusel = () => {
     <Carousel showArrows={true} autoPlay={true} showStatus={false}  onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb} infiniteLoop={true} showThumbs={false}>
       <div>
         <img src="/images/carousel1.png" />
-        <h2 className="legend">Este es el efecto de la migración de venezolanos a Colombia en precios y salarios</h2>
+        <p className="legend">Este es el efecto de la migración de venezolanos a Colombia en precios y salarios</p>
       </div>
       <div>
-        <img src="/images/carousel1.png" />
-        <p className="legend">Legend 2</p>
+        <img src="/images/carousel2.png" />
+        <p className="legend">Migración venezolana puede disminuir salarios y bajar la inflación en Colombia</p>
       </div>
       <div>
-        <img src="/images/carousel1.png" />
-        <p className="legend">Legend 3</p>
+        <img src="/images/carousel3.png" />
+        <p className="legend">Colombia anuncia un Estatuto de Protección Temporal para regularizar a inmigrantes venezolanos</p>
       </div>
     </Carousel>
   );

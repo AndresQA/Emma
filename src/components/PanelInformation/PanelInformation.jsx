@@ -14,13 +14,13 @@ const PanelInformation = () => {
 
     switch (type) {
         case "Faq":
-            return <Faq />
+            return <Faq/>
             break;
         case "Notification":
-            return <Notification />
+            return <Notification/>
             break;
         case "Step":
-            return <Step />
+            return <Step/>
             break;
     }
     return <div></div>

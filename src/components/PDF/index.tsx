@@ -43,7 +43,7 @@ export default PDF;
 
 ///////// Maquetacion del documento pdf
 
-const Documento = ({ formaIngreso, lugarIngreso, selectedDate, nombreSolicitante }: any) => {
+const Documento = ({ formaIngreso, cedulaPersona, telefono, correoSolicitante, direccionResidencia, lugarIngreso, selectedDate, nombreSolicitante }: any) => {
 
 
 
@@ -51,7 +51,7 @@ const Documento = ({ formaIngreso, lugarIngreso, selectedDate, nombreSolicitante
         
         <Page style={styles.body} size="A4">
          
-                <Text>Documento PDF de {nombreSolicitante} y tengo {formaIngreso} años de edad</Text>
+                <Text>Documento PDF de {nombreSolicitante} y tengo {formaIngreso} años  de edad esta es mi cedula {cedulaPersona} y mi telefono es {telefono} y mi correo es {correoSolicitante} y mi residencia es en {direccionResidencia}</Text>
           
                 <Text>Venezuela es un país que se encuentra en una grave crisis institucional, social, económica y política, lo que implica que la mayoría de migrantes que salen de Venezuela lo hacen por las masivas vulneraciones de derechos humanos que afectan gravemente el orden público.  En otras palabras, “La crisis multidimensional de Venezuela conduce a que miles de ciudadanos abandonen su país por el colapso socioeconómico, por la persecución política o por la violencia y la inseguridad, en busca de garantizar el derecho a la vida, la salud, la alimentación, la integridad y la libertad personal” .Lo que genera que mi sobrina y yo no podamos volver a Venezuela en estos momentos, pues estaríamos en condiciones vulnerables por el contexto del país.</Text>
             

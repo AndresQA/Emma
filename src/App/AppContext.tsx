@@ -10,6 +10,10 @@ type IFAQ = "Faq" | "Notification" | "Step"
 interface IDataForms {
     formaIngreso: string;
     lugarIngreso: string;
+    cedulaPersona: Number;
+    telefono: Number;
+    correoSolicitante: string,
+    direccionResidencia: string,
     selectedDate: Date,
 
 }
@@ -46,6 +50,10 @@ export const AppContextProvider = (props: Props<any>) => {
     const [dataForms, setDataForms] = useState<IDataForms>({
         formaIngreso: "",
         lugarIngreso: "",
+        cedulaPersona: 0,
+        telefono: 0,
+        correoSolicitante: "",
+        direccionResidencia: "",
         selectedDate: new Date()
     })
 
