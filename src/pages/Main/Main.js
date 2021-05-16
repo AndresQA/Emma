@@ -10,6 +10,8 @@ import FormRouteMig from '../../components/FormRouteMig/FormRouteMig';
 import 'firebase/auth';
 import "./Main.scss";
 import AppContext from '../../App/AppContext';
+import Chat from '../Chat/Chat';
+
 
 
 const Main = (props) => {
@@ -21,6 +23,8 @@ const Main = (props) => {
     return (
 
         isLoging === true ? <div className="index">
+
+            <Route path="/inicio/chat" exact component={Chat} />
 
             <Route path="/inicio" exact component={News} />
             <Route path="/inicio/Ruta_Migratoria" exact component={RouteMig} />

@@ -7,6 +7,8 @@ import Firebase from './Firebase';
 
 export interface IUserInformation {
     nombre: string;
+    role?: "Usuario" | "Administrador";
+    chat?: string;
 }
 
 class userConfig {
@@ -28,7 +30,7 @@ class userConfig {
                 load && load(true);
             });
 
-        }).catch((err) => {
+        }).catch((err: any) => {
             errorF && errorF(err.code);
             load && load(false);
         });
@@ -36,11 +38,12 @@ class userConfig {
 
     register(correo: string, pass: string, user: IUserInformation, load?: (register: boolean) => void, errorF?: (error: string) => void) {
 
-        this.auth.createUserWithEmailAndPassword(correo, pass).then((userFirebase) => {
+
+        this.auth.createUserWithEmailAndPassword(correo, pass).then((userFirebase: any) => {
             if (userFirebase.user) {
                 this.userFirebase = userFirebase.user;
+                //@ts-ignore
                 let UID = this.userFirebase.uid;
-
 
                 Database.writeDatabase([
                     DB_ROUTES.USER._THIS,
@@ -53,7 +56,7 @@ class userConfig {
                 });
             }
 
-        }).catch((err) => {
+        }).catch((err: any) => {
             errorF && errorF(err.code);
             load && load(false);
         });
@@ -76,8 +79,8 @@ class userConfig {
 
                         if (snap) {
                             var information = snap.val();
-                           // console.clear()
-                           // console.log("Mi informacion", information)
+                            // console.clear()
+                            // console.log("Mi informacion", information)
 
                             this.setInformation(information);
                             load && load(true);
@@ -98,7 +101,9 @@ class userConfig {
 
     private getDefaultInformation(): IUserInformation {
         return {
-            nombre: ""
+            nombre: "",
+            role: undefined,
+            chat: undefined
         }
     }
 
@@ -106,7 +111,7 @@ class userConfig {
         this.auth.signOut().then(() => {
             this.resetUser();
             load(true);
-        }).catch(function (error) {
+        }).catch((error: any) => {
             load(false)
         });
     }

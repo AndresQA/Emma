@@ -28,7 +28,7 @@ class SetupDatabase {
         var { isNull, url } = this.getRoutes(urls);
 
         if (!isNull) {
-            this.db.ref(url).once("value", snapshot => {
+            this.db.ref(url).once("value", (snapshot: any) => {
                 var value = undefined;
                 var exist = false;
                 var key = snapshot.key || "";
@@ -60,7 +60,7 @@ class SetupDatabase {
 
         if (!isNull) {
             var refDataBase = this.db.ref(url);
-            refDataBase.once('value', (snapshots) => {
+            refDataBase.once('value', (snapshots: any) => {
                 load(snapshots);
             });
         } else {
@@ -71,15 +71,23 @@ class SetupDatabase {
     readBrachDatabase(urls: string[], load: (snapshot: firebase.database.DataSnapshot | undefined) => void) {
 
         var { isNull, url } = this.getRoutes(urls);
-
+        let listener = () => { };
         if (!isNull) {
             var refDataBase = this.db.ref(url);
-            refDataBase.on('value', (snapshots: any) => {
+            let listenRealTime = refDataBase.on('value', (snapshots: any) => {
                 load(snapshots);
             });
+
+            listener = () => {
+                refDataBase.off('value', listenRealTime)
+            }
+
+
         } else {
             load(undefined);
         }
+
+        return listener;
     }
 
     readBrachDatabaseFilter(urls: string[], filter: string, value: string, load: (snapshot: firebase.database.DataSnapshot | undefined) => void) {
