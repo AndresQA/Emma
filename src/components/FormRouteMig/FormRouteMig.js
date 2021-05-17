@@ -121,6 +121,7 @@ const FormRouteMig = () => {
                             <TextField className="emailinput" id="outlined-basic" variant="outlined" onChange={handleChangeDireccionResidencia} />
                         </div>
                     </div>
+                    
                     <h4 className="ingresoColombiaTitle">Ingreso a Colombia</h4>
                     <hr />
 
