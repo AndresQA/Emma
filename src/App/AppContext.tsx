@@ -15,7 +15,6 @@ interface IDataForms {
     correoSolicitante: string,
     direccionResidencia: string,
     selectedDate: Date,
-
 }
 
 
