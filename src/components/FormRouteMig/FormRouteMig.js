@@ -16,7 +16,7 @@ import User from '../../constants/Firebase/User';
 
 
 const FormRouteMig = () => {
-    const { useFaq, useDataForms, useLogin } = AppContext.Consumer();
+    const { useFaq, useDataForms, useLogin, usePageRouteMig } = AppContext.Consumer();
 
     const [nombre, setNombre] = useState("Nombre de usuario");
 
@@ -36,7 +36,7 @@ const FormRouteMig = () => {
 
     const { formaIngreso, lugarIngreso, selectedDate, cedulaPersona, telefono, correoSolicitante, direccionResidencia, nombreSolicitante, } = dataForms;
 
-    const [page, setPage] = React.useState(1);
+    const [page, setPage] = usePageRouteMig();
 
     const handlePageChange = (index) => {
         setPage(index);
@@ -60,6 +60,7 @@ const FormRouteMig = () => {
 
     const handleChangeCedulaPersona = (event) => {
         setDataForms({ ...dataForms, cedulaPersona: event.target.value })
+       
 
     };
 
@@ -77,7 +78,7 @@ const FormRouteMig = () => {
     };
     switch (page) {
         case 1:
-            return <div className="formRouteMig">
+            return <div className="formRouteMig" key="1">
                 <h1>Solicitud de Refugio</h1>
                 <form action="">
                     <h4>Datos personales</h4>
@@ -85,7 +86,7 @@ const FormRouteMig = () => {
                     <div className="formRow">
                         <div className="fullName">
                             <p>Nombre completo del solicitante</p>
-                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" value={nombre} disabled
+                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" value={nombre} 
                                 placeholder="Ej: Michael Rojas"/>
                         </div>
                         <div className="ident">
@@ -185,7 +186,7 @@ const FormRouteMig = () => {
             break;
 
         case 2:
-            return <div className="formRouteMig">
+            return <div className="formRouteMig" key="2">
                 <h1>Solicitud de Refugio</h1>
                 <form action="">
                     <h4>Beneficiaros</h4>

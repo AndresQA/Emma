@@ -78,7 +78,6 @@ hr {
 
 .progressBarGrey{
     height: 10px;
-    background-color: #EFF0F6;
     border-radius: 10px;
     width: 100%;
 }
@@ -129,3 +128,30 @@ hr {
 .circleCompleted{
     border-color:  blueviolet;
 }
+
+.progressBar[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 17px;
+
+  }
+
+  progress {
+    border-radius: 17px; 
+    width: 100%;
+    height: 15px;
+  }
+  progress::-webkit-progress-bar {
+    background-color: rgb(184, 184, 184);
+    border-radius: 17px;
+  }
+  progress::-webkit-progress-value {
+    background-color: blueviolet;
+    border-radius: 17px;
+    transition: all .5s ease;
+  }
+  progress::-moz-progress-bar {
+    /* style rules */
+    
+  }
+
+

@@ -14,7 +14,7 @@ import Chat from '../Chat/Chat';
 
 
 
-const Main = (props) => {
+const Main = () => {
 
     const { useLogin } = AppContext.Consumer();
     const [isLoging, setIsLogin] = useLogin();
@@ -24,8 +24,8 @@ const Main = (props) => {
 
         isLoging === true ? <div className="index">
 
-            <Route path="/inicio/chat" exact component={Chat} />
 
+            <Route path="/inicio/chat" exact component={Chat} />
             <Route path="/inicio" exact component={News} />
             <Route path="/inicio/Ruta_Migratoria" exact component={RouteMig} />
             <Route path="/inicio/Salud" exact component={Health} />

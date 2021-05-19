@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Carusel from '../components/Carousel/Carousel';
 import AppContext from '../App/AppContext';
 import './News.scss'
+import { Link } from 'react-router-dom';
 const News = () => {
 
     const { useFaq } = AppContext.Consumer();
@@ -19,10 +20,12 @@ const News = () => {
                     <h3>Hola, soy Emma</h3>
                     <p>Estoy aquí para ayudarte, déjame saber si necesitas ayuda. </p>
                 </div>
+                <Link to="/inicio/chat">
                 <div className="news__banner__buttomChat">
                     <img src="/icons/chat.png" className="" alt="" />
                     <p>Chat</p>
                 </div>
+                </Link>
             </div>
             <h1 className="firstTitle">Lo más buscado</h1>
             <div className="news__bannerCards">
