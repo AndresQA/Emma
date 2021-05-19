@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import * as comunitiesData from './Comunities.json'
 import comunityMapStyle from './comunityMapStyle'
+import AppContext from '../../App/AppContext';
 import "./Comunity.scss"
 
 const Map = () => {
     const [selectedComunity, setSelectedComunity] = useState(null);
+    const { UseDataMapsComunity } = AppContext.Consumer();
+    const [dataMapsComunity, setDataMapsComunity] = UseDataMapsComunity();
+
+    const {nombreComunidad, descripcionComunidad} = dataMapsComunity;
 
     return (
         <GoogleMap defaultZoom={13} defaultCenter={{
             lat: 3.412414505047919,
             lng: -76.52585785099772
         }}
-        defaultOptions={{styles: comunityMapStyle}}
+            defaultOptions={{ styles: comunityMapStyle }}
         >
             {comunitiesData.features.map((comunities) => (
 
-                <Marker key={comunities.properties.PARK_ID} 
-                position={{
-                    lat: comunities.geometry.coordinates[0],
-                    lng: comunities.geometry.coordinates[1]
-                }}
+                <Marker key={comunities.properties.PARK_ID}
+                    position={{
+                        lat: comunities.geometry.coordinates[0],
+                        lng: comunities.geometry.coordinates[1]
+                    }}
                     onClick={() => {
                         setSelectedComunity(comunities);
+                        setDataMapsComunity({ ...dataMapsComunity, descripcionComunidad:  comunities.properties.DESCRIPTIO, nombreComunidad:  comunities.properties.NAME});
                     }}
                     icon={{
                         url: '/icons/Marker.png',
@@ -31,13 +37,13 @@ const Map = () => {
                 />
             ))}
             {selectedComunity && (
-                <InfoWindow  position={{
+                <InfoWindow position={{
                     lat: selectedComunity.geometry.coordinates[0],
                     lng: selectedComunity.geometry.coordinates[1]
                 }}
-                onCloseClick={()=>{
-                    setSelectedComunity(null);
-                }}
+                    onCloseClick={() => {
+                        setSelectedComunity(null);
+                    }}
                 >
 
                     <div>
@@ -55,6 +61,14 @@ const Map = () => {
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 const Comunity = () => {
+    const { useFaq } = AppContext.Consumer();
+    const [type, Step] = useFaq();
+
+    useEffect(() => {
+        Step("Faq");
+    }, [])
+
+
     return (
         <div className="comunity">
             <h1>Comunidad</h1>

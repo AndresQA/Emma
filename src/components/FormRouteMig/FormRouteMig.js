@@ -21,26 +21,23 @@ const FormRouteMig = () => {
     const [nombre, setNombre] = useState("Nombre de usuario");
 
     const [isLoging, setIsLogin] = useLogin();
+    const [type, Step] = useFaq();
 
     useEffect(() => {
-
+        Step("Step");
         setNombre(User.information.nombre)
         setDataForms({ ...dataForms, nombreSolicitante: User.information.nombre })
     }, [isLoging])
 
 
-    const [type, Step] = useFaq();
+
 
     const [dataForms, setDataForms] = useDataForms();
 
     const { formaIngreso, lugarIngreso, selectedDate, cedulaPersona, telefono, correoSolicitante, direccionResidencia, nombreSolicitante, } = dataForms;
 
     const [page, setPage] = React.useState(1);
-    /*
-    const [formaIngreso, setformaIngreso] = React.useState(dataForms.formaIngreso);
-    const [lugarIngreso, setLugarIngreso] = React.useState(dataForms.lugarIngreso);
-    const [selectedDate, setSelectedDate] = React.useState(dataForms.fe);
-*/
+
     const handlePageChange = (index) => {
         setPage(index);
     }
@@ -48,41 +45,34 @@ const FormRouteMig = () => {
     console.log(page);
 
     const handleDateChange = (selectedDate) => {
-        //setSelectedDate(date);
         setDataForms({ ...dataForms, selectedDate })
     };
 
 
     const handleChangeFormaIngreso = (event) => {
-        //setformaIngreso(event.target.value);
         setDataForms({ ...dataForms, formaIngreso: event.target.value })
     };
 
     const handleChangeLugarIngreso = (event) => {
-        //setLugarIngreso(event.target.value);
         setDataForms({ ...dataForms, lugarIngreso: event.target.value })
 
     };
 
     const handleChangeCedulaPersona = (event) => {
-        //setLugarIngreso(event.target.value);
         setDataForms({ ...dataForms, cedulaPersona: event.target.value })
 
     };
 
     const handleChangeTelefono = (event) => {
-        //setLugarIngreso(event.target.value);
         setDataForms({ ...dataForms, telefono: event.target.value })
 
     };
     
     const handleChangeCorreoSolicitante = (event) => {
-        //setLugarIngreso(event.target.value);
         setDataForms({ ...dataForms, correoSolicitante: event.target.value })
     };
 
     const handleChangeDireccionResidencia = (event) => {
-        //setLugarIngreso(event.target.value);
         setDataForms({ ...dataForms, direccionResidencia: event.target.value })
     };
     switch (page) {

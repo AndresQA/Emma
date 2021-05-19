@@ -17,12 +17,18 @@ interface IDataForms {
     selectedDate: Date,
 }
 
+interface IDataMapsComunity {
+    nombreComunidad: String;
+    descripcionComunidad: String;
+}
+
 
 type IUseLogin = [undefined | boolean, React.Dispatch<React.SetStateAction<undefined | boolean>>]
 type IUsePathName = [string, React.Dispatch<React.SetStateAction<string>>]
 type IUseStyle = [IStylePage, React.Dispatch<React.SetStateAction<IStylePage>>]
 type IUseFaq = [IFAQ, React.Dispatch<React.SetStateAction<IFAQ>>]
 type IUseDataForms = [any, React.Dispatch<React.SetStateAction<any>>]
+type IUseDataMapsComunity = [any, React.Dispatch<React.SetStateAction<any>>]
 
 
 
@@ -32,6 +38,7 @@ export interface IPropsContext {
     useStyle: () => IUseStyle
     useFaq: () => IUseFaq
     useDataForms: () => IUseDataForms
+    UseDataMapsComunity: () => IUseDataMapsComunity
 }
 
 const AppContext = createContext<IPropsContext>();
@@ -42,7 +49,7 @@ export const AppContextProvider = (props: Props<any>) => {
     const [style, setStyle] = useState<IStylePage>({
         header: "DEFAULT"
     });
-    const [faq, setFaq] = useState<IFAQ>("Step");
+    const [faq, setFaq] = useState<IFAQ>("Notification");
 
     const [isLoging, setIsLogin] = useState<undefined | boolean>(undefined);
 
@@ -54,6 +61,11 @@ export const AppContextProvider = (props: Props<any>) => {
         correoSolicitante: "",
         direccionResidencia: "",
         selectedDate: new Date()
+    })
+
+    const [dataMapsComunity, setDataMapsComunity] = useState<IDataMapsComunity>({
+        nombreComunidad: "",
+        descripcionComunidad: "",
     })
 
 
@@ -72,15 +84,17 @@ export const AppContextProvider = (props: Props<any>) => {
         const useStyle: () => IUseStyle = () => [style, setStyle]
         const useFaq: () => IUseFaq = () => [faq, setFaq]
         const useDataForms: () => IUseDataForms = () => [dataForms, setDataForms]
+        const UseDataMapsComunity: () => IUseDataMapsComunity = () => [dataMapsComunity, setDataMapsComunity]
 
         return {
             useLogin,
             usePathname,
             useStyle,
             useFaq,
-            useDataForms
+            useDataForms,
+            UseDataMapsComunity
         }
-    }, [isLoging, pathName, style, faq, dataForms]);
+    }, [isLoging, pathName, style, faq, dataForms, dataMapsComunity]);
 
     return <AppContext.Provider value={value} {...props} />
 }

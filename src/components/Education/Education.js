@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AppContext from '../../App/AppContext';
 
 const Education = () => {
+
+    const { useFaq } = AppContext.Consumer();
+    const [type, Step] = useFaq();
+
+    useEffect(() => {
+        Step("Notification");
+    }, [])
+
     return (
         <div >
             <h1>Tramites</h1>

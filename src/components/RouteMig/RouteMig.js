@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
-import './routeMig.scss'
 import { Route, Link, Redirect, useHistory } from 'react-router-dom';
-import PDF from '../PDF';
+import AppContext from '../../App/AppContext';
+import './routeMig.scss'
 
 const RouteMig = () => {
 
+    const { useFaq } = AppContext.Consumer();
+    const [type, Step] = useFaq();
+
+    useEffect(() => {
+        Step("Notification");
+    }, [])
 
 
     return (
@@ -41,7 +47,6 @@ const RouteMig = () => {
                 </div>
             </div>
 
-            {/*<PDF/>*/}
 
 
         </div>

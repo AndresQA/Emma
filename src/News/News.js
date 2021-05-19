@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Carusel from '../components/Carousel/Carousel';
+import AppContext from '../App/AppContext';
 import './News.scss'
 const News = () => {
+
+    const { useFaq } = AppContext.Consumer();
+    const [type, Step] = useFaq();
+
+    useEffect(() => {
+        Step("Notification");
+    }, [])
+
     return (
         <div className="news">
             <div className="news__banner">

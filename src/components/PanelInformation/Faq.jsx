@@ -8,56 +8,33 @@ const Faq = () => {
     const [nombre, setNombre] = useState("Nombre de usuario");
 
 
-    const { useLogin } = AppContext.Consumer();
+    const { useLogin, UseDataMapsComunity } = AppContext.Consumer();
     const [isLoging, setIsLogin] = useLogin();
+    const [dataMapsComunity, setDataMapsComunity] = UseDataMapsComunity();
+
+    const {nombreComunidad, descripcionComunidad} = dataMapsComunity;
+
 
     useEffect(() => {
-        
+
         setNombre(User.information.nombre)
     }, [isLoging])
 
     return <div className="Body__faq">
         <div className="index__contentRightMenu">
 
-            <div >
-                <div className="index__contentRightMenu__card">
-                    <img src="/images/cardname.png" alt="" className="index__contentRightMenu__cardImg"></img>
-                    <h2>Hola {nombre}</h2>
-                </div>
 
-                <div className="index__contentRightMenu__boxfaq">
-                    <div className="index__contentRightMenu__faq">
-                        <p>Se me venció el PEP</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-                    </div>
+            <div className="index__contentRightMenu__boxfaq">
+                <h4 className="panelInfo_Tittle">Información</h4>
 
-                    <div className="index__contentRightMenu__faq">
-                        <p>Se me venció el salvoconducto</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
+                <h5>{nombreComunidad}</h5>
 
-                    </div>
+                <p>{descripcionComunidad}</p>
+                
 
-                    <div className="index__contentRightMenu__faq">
-                        <p>Necesito ir a un hospital</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <p>¿Dónde matricular a mis hijos?</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-
-                    </div>
-
-                    <div className="index__contentRightMenu__faq">
-                        <p>Como afiliarme al sistema de salud</p>
-                        <img src="/icons/info.png" alt="" className="index__contentRightMenu__faqImg"></img>
-
-                    </div>
-
-                </div>
 
             </div>
+
 
 
         </div>
