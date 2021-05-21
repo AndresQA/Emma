@@ -34,7 +34,8 @@ const FormRouteMig = () => {
 
     const [dataForms, setDataForms] = useDataForms();
 
-    const { formaIngreso, lugarIngreso, selectedDate, cedulaPersona, telefono, correoSolicitante, direccionResidencia, nombreSolicitante, } = dataForms;
+    const { formaIngreso, lugarIngreso, selectedDate, cedulaPersona, telefono, correoSolicitante, direccionResidencia, nombreSolicitante, 
+    nombreBeneficiario, idBeneficiario, edadBeneficiario, formaIngresoBeneficiario, lugarIngresoBeneficiario, fechaIngresoBeneficiario} = dataForms;
 
     const [page, setPage] = usePageRouteMig();
 
@@ -47,7 +48,9 @@ const FormRouteMig = () => {
     const handleDateChange = (selectedDate) => {
         setDataForms({ ...dataForms, selectedDate })
     };
-
+  const handleFechaIngresoBeneficiario = (fechaIngresoBeneficiario) => {
+        setDataForms({ ...dataForms, fechaIngresoBeneficiario })
+    };
 
     const handleChangeFormaIngreso = (event) => {
         setDataForms({ ...dataForms, formaIngreso: event.target.value })
@@ -60,13 +63,10 @@ const FormRouteMig = () => {
 
     const handleChangeCedulaPersona = (event) => {
         setDataForms({ ...dataForms, cedulaPersona: event.target.value })
-       
-
     };
 
     const handleChangeTelefono = (event) => {
         setDataForms({ ...dataForms, telefono: event.target.value })
-
     };
     
     const handleChangeCorreoSolicitante = (event) => {
@@ -76,6 +76,23 @@ const FormRouteMig = () => {
     const handleChangeDireccionResidencia = (event) => {
         setDataForms({ ...dataForms, direccionResidencia: event.target.value })
     };
+
+    const handleChangeNombreBeneficiario = (event) => {
+        setDataForms({ ...dataForms, nombreBeneficiario: event.target.value })
+    }
+   const handleChangeIdBeneficiario = (event) => {
+        setDataForms({ ...dataForms, idBeneficiario: event.target.value })
+    }
+   const handleChangeEdadBeneficiario = (event) => {
+        setDataForms({ ...dataForms, edadBeneficiario: event.target.value })
+    }
+   const handleChangeFormaIngresoBeneficiario = (event) => {
+        setDataForms({ ...dataForms, formaIngresoBeneficiario: event.target.value })
+    }
+   const handleChangeLugarIngresoBeneficiario = (event) => {
+        setDataForms({ ...dataForms, lugarIngresoBeneficiario: event.target.value })
+    }
+    
     switch (page) {
         case 1:
             return <div className="formRouteMig" key="1">
@@ -189,22 +206,22 @@ const FormRouteMig = () => {
             return <div className="formRouteMig" key="2">
                 <h1>Solicitud de Refugio</h1>
                 <form action="">
-                    <h4>Beneficiaros</h4>
+                    <h4>Beneficiarios</h4>
                     <hr />
 
                     <div className="formRow">
                         <div className="fullName">
-                            <p>Nombre completo del solicitante</p>
+                            <p>Nombre completo del Beneficiario</p>
                             <TextField className="fullName__textfield" id="outlined-basic" variant="outlined"
-                                placeholder="Ej: Michael Rojas" />
+                                placeholder="Ej: Michael Rojas" onClick={handleChangeNombreBeneficiario} />
                         </div>
                         <div className="">
                             <p>Número de identificacion venezolana</p>
-                            <TextField id="outlined-basic" variant="outlined" />
+                            <TextField id="outlined-basic" variant="outlined" onClick={handleChangeIdBeneficiario} />
                         </div>
                         <div className="">
                             <p>Edad</p>
-                            <TextField id="outlined-basic" variant="outlined" />
+                            <TextField id="outlined-basic" variant="outlined" onClick={handleChangeEdadBeneficiario}/>
                         </div>
 
                     </div>
@@ -219,7 +236,7 @@ const FormRouteMig = () => {
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={formaIngreso}
+                                    value={formaIngresoBeneficiario}
                                     onChange={handleChangeFormaIngreso}
                                 >
                                     <MenuItem value="">
@@ -239,8 +256,8 @@ const FormRouteMig = () => {
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={lugarIngreso}
-                                    onChange={handleChangeLugarIngreso}
+                                    value={lugarIngresoBeneficiario}
+                                    onChange={handleChangeLugarIngresoBeneficiario}
                                 >
                                     <MenuItem value="">
                                         <em>Seleccionar</em>
@@ -261,8 +278,8 @@ const FormRouteMig = () => {
                                         id="date-picker-dialog"
                                         label="Elige una fecha"
                                         format="MM/dd/yyyy"
-                                        value={selectedDate}
-                                        onChange={handleDateChange}
+                                        value={fechaIngresoBeneficiario}
+                                        onChange={handleFechaIngresoBeneficiario}
                                         KeyboardButtonProps={{
                                             'aria-label': 'change date',
                                         }}

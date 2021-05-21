@@ -16,11 +16,20 @@ interface IDataForms {
     correoSolicitante: string,
     direccionResidencia: string,
     selectedDate: Date,
+    nombreBeneficiario: string,
+    idBeneficiario: string,
+    edadBeneficiario?: number,
+    formaIngresoBeneficiario: string,
+    lugarIngresoBeneficiario: String,
+    fechaIngresoBeneficiario: Date,
 }
 
 interface IDataMapsComunity {
-    nombreComunidad: String;
-    descripcionComunidad: String;
+    nombreComunidad: string;
+    descripcionComunidad: string;
+    direccionComunidad: string;
+    telefonoComunidad: string;
+    imgComunidad: string;
 }
 
 
@@ -66,12 +75,21 @@ export const AppContextProvider = (props: Props<any>) => {
         telefono: undefined,
         correoSolicitante: "",
         direccionResidencia: "",
-        selectedDate: new Date()
+        selectedDate: new Date(),
+        nombreBeneficiario: "",
+        idBeneficiario: "",
+        edadBeneficiario: undefined,
+        formaIngresoBeneficiario: "",
+        lugarIngresoBeneficiario: "",
+        fechaIngresoBeneficiario: new Date(),
     })
 
     const [dataMapsComunity, setDataMapsComunity] = useState<IDataMapsComunity>({
         nombreComunidad: "",
         descripcionComunidad: "",
+        direccionComunidad: "",
+        telefonoComunidad: "",
+        imgComunidad: "",
     })
 
 

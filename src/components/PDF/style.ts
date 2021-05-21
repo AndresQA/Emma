@@ -1,4 +1,6 @@
-import { StyleSheet} from '@react-pdf/renderer';
+import { StyleSheet, Font } from '@react-pdf/renderer';
+
+
 
 const styles = StyleSheet.create({
 
@@ -10,7 +12,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         textAlign: 'center',
-        fontFamily: 'Oswald'
+
     },
     author: {
         fontSize: 12,
@@ -20,13 +22,13 @@ const styles = StyleSheet.create({
     subtitle: {
         fontSize: 18,
         margin: 12,
-        fontFamily: 'Oswald'
+
     },
     text: {
         margin: 12,
         fontSize: 14,
         textAlign: 'justify',
-        fontFamily: 'Times-Roman'
+
     },
     image: {
         marginVertical: 15,
@@ -48,7 +50,5 @@ const styles = StyleSheet.create({
         color: 'grey',
     },
 });
-
-
 
 export default styles;

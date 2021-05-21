@@ -10,7 +10,7 @@ const Map = () => {
     const { UseDataMapsComunity } = AppContext.Consumer();
     const [dataMapsComunity, setDataMapsComunity] = UseDataMapsComunity();
 
-    const {nombreComunidad, descripcionComunidad} = dataMapsComunity;
+    const {nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad} = dataMapsComunity;
 
     return (
         <GoogleMap defaultZoom={13} defaultCenter={{
@@ -28,7 +28,9 @@ const Map = () => {
                     }}
                     onClick={() => {
                         setSelectedComunity(comunities);
-                        setDataMapsComunity({ ...dataMapsComunity, descripcionComunidad:  comunities.properties.DESCRIPTIO, nombreComunidad:  comunities.properties.NAME});
+                        setDataMapsComunity({ ...dataMapsComunity, descripcionComunidad:  comunities.properties.DESCRIPTIO, nombreComunidad:  comunities.properties.NAME,
+                            direccionComunidad:  comunities.properties.ADDRESS, telefonoComunidad:  comunities.properties.PHONE_NUMBER, 
+                            imgComunidad:  comunities.properties.PICTURE});
                     }}
                     icon={{
                         url: '/icons/Marker.png',
@@ -46,9 +48,10 @@ const Map = () => {
                     }}
                 >
 
-                    <div>
-                        <h2>{selectedComunity.properties.NAME}</h2>
-                        <p>{selectedComunity.properties.DESCRIPTIO}</p>
+                    <div className="mapTag">
+                        <img className="mapImgTag" src={selectedComunity.properties.PICTURE} alt="" />
+                        <h3>{selectedComunity.properties.NAME}</h3>
+                        <p>{selectedComunity.properties.ADDRESS}</p>
                     </div>
                 </InfoWindow>
 

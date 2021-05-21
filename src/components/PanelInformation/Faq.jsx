@@ -12,7 +12,7 @@ const Faq = () => {
     const [isLoging, setIsLogin] = useLogin();
     const [dataMapsComunity, setDataMapsComunity] = UseDataMapsComunity();
 
-    const {nombreComunidad, descripcionComunidad} = dataMapsComunity;
+    const {nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad} = dataMapsComunity;
 
 
     useEffect(() => {
@@ -28,8 +28,12 @@ const Faq = () => {
                 <h4 className="panelInfo_Tittle">Información</h4>
 
                 <h5>{nombreComunidad}</h5>
+                <img className="mapImgTag" src={imgComunidad} alt="" />
 
                 <p>{descripcionComunidad}</p>
+
+                <p>{telefonoComunidad}</p>
+                <p>{direccionComunidad}</p>
                 
 
 
