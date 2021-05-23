@@ -44,20 +44,26 @@ const Step = () => {
                             <p>{Math.round(progress, 0)}% completado</p>
                         </div>
                         <div className="infoSteps">
-                            <div className="circle"></div>
-                            <p style={{color : pageRouteMig == 2 ? "blueviolet" : ""}}>Datos Personales</p>
+                            <div className="circle" style={{borderColor : pageRouteMig >= 2 ? "blueviolet" : ""}}></div>
+                            <p style={{color : pageRouteMig >= 2 ? "blueviolet" : ""}}>Datos Personales</p>
 
                         </div>
 
                         <div className="infoSteps">
-                            <div className="circle"></div>
-                            <p>Datos Beneficiarios</p>
+                            <div className="circle" style={{borderColor : pageRouteMig >= 3 ? "blueviolet" : ""}}></div>
+                            <p style={{color : pageRouteMig >= 3 ? "blueviolet" : ""}}>Datos Beneficiarios</p>
 
                         </div>
 
                         <div className="infoSteps">
-                            <div className="circle"></div>
-                            <p>Anexos</p>
+                            <div className="circle" style={{borderColor : pageRouteMig >= 4 ? "blueviolet" : ""}}></div>
+                            <p style={{color : pageRouteMig >= 4 ? "blueviolet" : ""}}>Anexos</p>
+
+                        </div>
+
+                        <div className="infoSteps">
+                            <div className="circle" style={{borderColor : pageRouteMig >= 5 ? "blueviolet" : ""}}></div>
+                            <p style={{color : pageRouteMig >= 5 ? "blueviolet" : ""}}>Descargar Solicitud</p>
 
                         </div>
 
