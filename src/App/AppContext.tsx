@@ -30,6 +30,7 @@ interface IDataMapsComunity {
     direccionComunidad: string;
     telefonoComunidad: string;
     imgComunidad: string;
+    email: string;
 }
 
 
@@ -90,6 +91,7 @@ export const AppContextProvider = (props: Props<any>) => {
         direccionComunidad: "",
         telefonoComunidad: "",
         imgComunidad: "",
+        email: "",
     })
 
 

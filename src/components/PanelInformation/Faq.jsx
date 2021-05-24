@@ -12,7 +12,7 @@ const Faq = () => {
     const [isLoging, setIsLogin] = useLogin();
     const [dataMapsComunity, setDataMapsComunity] = UseDataMapsComunity();
 
-    const {nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad} = dataMapsComunity;
+    const {nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad, email} = dataMapsComunity;
 
 
     useEffect(() => {
@@ -32,8 +32,9 @@ const Faq = () => {
 
                 <p>{descripcionComunidad}</p>
 
-                <p>{telefonoComunidad}</p>
                 <p>{direccionComunidad}</p>
+                <p>{telefonoComunidad}</p>
+                <p>{email}</p>
                 
 
 

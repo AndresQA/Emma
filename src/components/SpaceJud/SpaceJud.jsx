@@ -10,18 +10,17 @@ const Map = () => {
     const { UseDataMapsComunity } = AppContext.Consumer();
     const [dataMapsComunity, setDataMapsComunity] = UseDataMapsComunity();
 
-    const {nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad} = dataMapsComunity;
+    const {nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad, email} = dataMapsComunity;
 
     useEffect(() => {
         setDataMapsComunity("");
     }, [])
 
     return (
-        <GoogleMap defaultZoom={13} defaultCenter={{
-            lat: 3.412414505047919,
-            lng: -76.52585785099772
+        <GoogleMap defaultZoom={6} defaultCenter={{
+            lat: 3.8677971220831284,
+            lng: -73.43140983442527
         }}
-            defaultOptions={{ styles: spaceJudMapStyle }}
         >
             {comunitiesData.features.map((comunities) => (
 
@@ -34,7 +33,7 @@ const Map = () => {
                         setSelectedComunity(comunities);
                         setDataMapsComunity({ ...dataMapsComunity, descripcionComunidad:  comunities.properties.DESCRIPTIO, nombreComunidad:  comunities.properties.NAME,
                             direccionComunidad:  comunities.properties.ADDRESS, telefonoComunidad:  comunities.properties.PHONE_NUMBER, 
-                            imgComunidad:  comunities.properties.PICTURE});
+                            imgComunidad:  comunities.properties.PICTURE, email:  comunities.properties.EMAIL});
                     }}
                     icon={{
                         url: '/icons/Marker.png',
@@ -55,7 +54,8 @@ const Map = () => {
                     <div className="mapTag">
                         <img className="mapImgTag" src={selectedComunity.properties.PICTURE} alt="" />
                         <h3>{selectedComunity.properties.NAME}</h3>
-                        <p>{selectedComunity.properties.ADDRESS}</p>
+                        <p>{selectedComunity.properties.PHONE_NUMBER}</p>
+                        <p>{selectedComunity.properties.EMAIL}</p>
                     </div>
                 </InfoWindow>
 
