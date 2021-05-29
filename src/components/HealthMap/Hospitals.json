@@ -1,0 +1,59 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Hospital Cañaveralejo",
+        "ADDRESS": "Cra. 44 ##9c-178",
+        "PHONE_NUMBER": "8937711",
+        "DESCRIPTIO": "Hospital público del valle del Cauca, servicio de atención 24 horas.",
+        "PICTURE": "/images/hospital1.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.4160705208096442, -76.53767074502595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "H.U.V Hospital Universitario de Valle",
+        "ADDRESS": "Cl. 5 ##36 - 08",
+        "PHONE_NUMBER": "6206000",
+        "DESCRIPTIO": "Hospital público del valle del Cauca, servicio de atención 24 horas.",
+        "PICTURE": "/images/hospital2.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.4308431964285924, -76.54487886036993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Hospital Carlos Carmona Montoya",
+        "ADDRESS": "Cl. 39, Cali, Valle del Cauca",
+        "PHONE_NUMBER": "3280847",
+        "DESCRIPTIO": "La población colombiana no es la única afectada por la crisis que se vive a causa del Covid-19, los migrantes venezolanos que vinieron en busca de nuevas oportunidades también han sido fuertemente perjudicados por la situación de emergencia.",
+        "PICTURE": "/images/hospital3.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.411059539304603, -76.514812830688
+        ]
+      }
+    }
+  ]
+}

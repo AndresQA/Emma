@@ -32,19 +32,16 @@ const ChatView = ({ chat }: { chat: TSChat }) => {
     }
 
     return <div className="ChatView">
-        <h1>Lista de mensajes</h1>
-        <ul>
-            {mensajes.map(({ id, msg }) => {
-                return <div className={id}>
-                    <p>{msg}</p>
+     
+            {mensajes.map(({ userID, msg }) => {
+                return <div>
+                    <p className={userID}>{msg}</p>
                 </div>
             })}
-        </ul>
-        <div>
-            <label>
+       
+        <div className="inputChat">
                 <input ref={refInput} type="text" />
                 <button onClick={onSend}>Enviar</button>
-            </label>
         </div>
     </div>
 

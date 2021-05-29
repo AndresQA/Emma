@@ -49,14 +49,15 @@ const Chat = () => {
         {currentChat === undefined ?
             <>
                 <h1>Interface de Chat</h1>
-                <ul>
-                    {chatsViews.map((chat) => {
-                        const { UID } = chat;
-                        return <ChatItem key={UID} chat={chat} setCurrentChat={setCurrentChat} />
-                    })}
-                </ul>
+
+                {chatsViews.map((chat) => {
+                    const { UID } = chat;
+                    return <ChatItem key={UID} chat={chat} setCurrentChat={setCurrentChat} />
+                })}
+
             </>
-            : <>
+            : <>        <h1>Lista de mensajes</h1>
+
                 <ChatView chat={currentChat} />
             </>}
 

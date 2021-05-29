@@ -27,34 +27,33 @@
     {
       "type": "Feature",
       "properties": {
-        "NAME": "Pastoral Social Caritas Colombianas",
-        "ADDRESS": "Calle 20 N° 13 - 16",
-        "PHONE_NUMBER": "318 335 7294",
-        "DESCRIPTIO": "La población colombiana no es la única afectada por la crisis que se vive a causa del Covid-19, los migrantes venezolanos que vinieron en busca de nuevas oportunidades también han sido fuertemente perjudicados por la situación de emergencia.",
-        "PICTURE": "/images/comunity1.png"
+        "NAME": "Fundación Alianzas Solidarias",
+        "ADDRESS": "Cra 7 T 72 - 82",
+        "PHONE_NUMBER": "316 272 2592",
+        "DESCRIPTIO": "Somos la Fundación Alianzas Solidarias con Nit: 901404346-6 actualmente hacemos voluntariado en la ciudad de Cali, a través de nuestra labor buscamos mejoramiento de la calidad de vida de familias",
+        "PICTURE": "/images/comunity2.png"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.4355196816293874,
-          -76.5156598182754
+          3.454455179044819, -76.4838438436729
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "NAME": "Pastoral Social Caritas Colombianas",
+        "NAME": "Colonia Venezolana en Colombia",
         "ADDRESS": "Calle 20 N° 13 - 16",
-        "PHONE_NUMBER": "318 335 7294",
-        "DESCRIPTIO": "La población colombiana no es la única afectada por la crisis que se vive a causa del Covid-19, los migrantes venezolanos que vinieron en busca de nuevas oportunidades también han sido fuertemente perjudicados por la situación de emergencia.",
-        "PICTURE": "/images/comunity1.png"
+        "PHONE_NUMBER": "300 601 8496",
+        "DESCRIPTIO": "Asesorías en salud, contacto con entidades de la ciudad o municipio, ropero solidario, asesorías en la obtención de documentos de viaje, asesorías en vinculación de menores de edad al sistema educativo, eventos deportivos, redireccionamiento a otras organizaciones, inserción en el ámbito laboral.",
+        "PICTURE": "/images/comunity3.png"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.416787795670481,
-          -76.51522676998226
+          3.441932599382179, 
+          -76.52732640580017
         ]
       }
     }

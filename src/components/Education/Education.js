@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './Education.scss'
 import AppContext from '../../App/AppContext';
 
 const Education = () => {
@@ -11,18 +13,30 @@ const Education = () => {
     }, [])
 
     return (
-        <div >
-            <h1>Tramites</h1>
+        <div className="education">
+            <h1>Eduación</h1>
             <div className="news__bannerCards">
-                <div className="news__bannerItems">
-                    <h4>Urgencia Medica</h4>
-                </div>
-                <div className="news__bannerItems">
-                    <h4>Solicitud de Refugio</h4>
-                </div>
-                <div className="news__bannerItems">
-                    <h4>Renovación PEP</h4>
-                </div>
+                <Link to="/inicio/Educacion/basica">
+                    <div className="news__bannerItems">
+                        <h4>Educación Básica</h4>
+                    </div>
+                </Link>
+                
+                    <div className="news__bannerItems">
+                        <h4>Educación Secundaria</h4>
+                    </div>
+                    <div className="news__bannerItems">
+                        <h4>Educación Universitaria</h4>
+                    </div>
+                    <div className="news__bannerItems">
+                        <h4>Homologación Titulos</h4>
+                    </div>
+                    <div className="news__bannerItems">
+                        <h4>SENA</h4>
+                    </div>
+                    <div className="news__bannerItems">
+                        <h4>ICFES</h4>
+                    </div>
             </div>
         </div>
 

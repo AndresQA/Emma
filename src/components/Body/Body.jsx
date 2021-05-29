@@ -20,7 +20,7 @@ const Body = (props) => {
     return <div className={"Body" + (isLogin === false ? " login" : "")}>
         {isLogin === true ? <Sidebar /> : <></>}
         <Contenido {...props} />
-        {isLogin === true ? <PanelInformation/> : <></>}
+        {isLogin === true ? <PanelInformation /> : <></>}
 
     </div>
 }
@@ -48,59 +48,59 @@ const Sidebar = () => {
     return <div className="Body__sidebar">
         <div className="index__contentLeftMenu">
 
-            <div className={"index__contentLeftMenu__item" + (pathName.includes("inicio") && pathName.length <= 8 ? " menuselected" : "")}>
-                <Link to={RLink.INICIO} onClick={() => { setPathName(RLink.INICIO) }}>
+            <Link to={RLink.INICIO} onClick={() => { setPathName(RLink.INICIO) }}>
+                <div className={"index__contentLeftMenu__item" + (pathName.includes("inicio") && pathName.length <= 8 ? " menuselected" : "")}>
                     <div>
                         <HomeIcon style={{ color: "#ffffffc7" }}></HomeIcon>
                         <p>Inicio</p>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
 
-            <div className={"index__contentLeftMenu__item" + (pathName.includes("Ruta_Migratoria") ? " menuselected" : "")}>
-                <Link to="/inicio/Ruta_Migratoria" onClick={() => { setPathName(RLink.MIGRACION) }}>
+            <Link to="/inicio/Ruta_Migratoria" onClick={() => { setPathName(RLink.MIGRACION) }}>
+                <div className={"index__contentLeftMenu__item" + (pathName.includes("Ruta_Migratoria") ? " menuselected" : "")}>
                     <div>
                         <FlagIcon style={{ color: "#ffffffc7" }}></FlagIcon>
                         <p>Tu Ruta</p>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
 
-            <div className={"index__contentLeftMenu__item" + (pathName.includes("Salud") ? " menuselected" : "")}>
-                <Link to={RLink.SALUD} onClick={() => { setPathName(RLink.SALUD) }}>
+            <Link to={RLink.SALUD} onClick={() => { setPathName(RLink.SALUD) }}>
+                <div className={"index__contentLeftMenu__item" + (pathName.includes("Salud") ? " menuselected" : "")}>
                     <div>
                         <LocalHospitalIcon style={{ color: "#ffffffc7" }}></LocalHospitalIcon>
                         <p>Salud</p>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
 
-            <div className={"index__contentLeftMenu__item" + (pathName.includes("Educacion") ? " menuselected" : "")}>
-                <Link to={RLink.EDUCACION} onClick={() => { setPathName(RLink.EDUCACION) }}>
+            <Link to={RLink.EDUCACION} onClick={() => { setPathName(RLink.EDUCACION) }}>
+                <div className={"index__contentLeftMenu__item" + (pathName.includes("Educacion") ? " menuselected" : "")}>
                     <div>
                         <img src="/icons/educacion.png" alt="" className="index__menuIcons"></img>
                         <p>Educación</p>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
 
-            <div className={"index__contentLeftMenu__item" + (pathName.includes("Espacio_Juridico") ? " menuselected" : "")}>
-                <Link to={RLink.JURIDICO} onClick={() => { setPathName(RLink.JURIDICO) }}>
+            <Link to={RLink.JURIDICO} onClick={() => { setPathName(RLink.JURIDICO) }}>
+                <div className={"index__contentLeftMenu__item" + (pathName.includes("Espacio_Juridico") ? " menuselected" : "")}>
                     <div>
                         <img src="/icons/espajuri.png" alt="" className="index__menuIcons"></img>
                         <p>Espacio jurídico</p>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
 
-            <div className={"index__contentLeftMenu__item" + (pathName.includes("Comunidad") ? " menuselected" : "")}>
-                <Link to={RLink.COMUNIDAD} onClick={() => { setPathName(RLink.COMUNIDAD) }}>
+            <Link to={RLink.COMUNIDAD} onClick={() => { setPathName(RLink.COMUNIDAD) }}>
+                <div className={"index__contentLeftMenu__item" + (pathName.includes("Comunidad") ? " menuselected" : "")}>
                     <div>
                         <img src="/icons/comunidad.png" alt="" className="index__menuIcons"></img>
                         <p>Comunidad</p>
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
         </div>
     </div>
 }

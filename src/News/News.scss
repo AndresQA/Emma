@@ -59,33 +59,39 @@ h1 {
 
 .news__bannerCards {
     display: grid;
-    grid-gap: 20px 60px;
-    grid-template-columns: repeat(4, 0fr);
-
+    grid-gap: 30px 60px;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 @media (max-width: 1895px) {
     .news__bannerCards {
-        grid-template-columns: repeat(3, 1fr);
-        
+        grid-gap: 30px 30px;
     }
 }
 
-@media (max-width: 1620px) {
+@media (max-width: 1650px) {
     .news__bannerCards {
-        grid-template-columns: repeat(2, 1fr);
- 
+        grid-template-columns: repeat(3, 1fr);
+
     }
 }
+
+@media (max-width: 1350px) {
+    .news__bannerCards {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+
 
 .news__bannerItems {
     cursor: pointer;
     border-radius: 10px;
-    width: 240px;
+    width: 100%;
     height: 105px;
     background-image: url("https://github.com/AndresQA/Emma/blob/main/public/images/cardbackground.png?raw=true");
     background-size: cover;
-    margin: 20px 0px;
     color: white;
     position: relative;
 

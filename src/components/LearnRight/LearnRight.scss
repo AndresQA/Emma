@@ -1,0 +1,17 @@
+.learnRight{
+    width: 100%;
+}
+
+.news__bannerItemsContainer{
+    width: 100%;
+ & img{
+     border-radius: 6px 6px 0px 0px;
+     margin-bottom: -8px;
+     width: 100%;
+
+ }
+}
+
+.bordercardsitems{
+    border-radius: 0px 0px 6px 6px;
+}

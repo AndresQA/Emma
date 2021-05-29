@@ -1,0 +1,32 @@
+.glosary {
+    width: 100%;
+}
+
+.glosary__items {
+    background-color: white;
+    box-shadow: 4.97561px 4.97561px 4.97561px rgba(0, 0, 0, 0.02), -4.97561px -4.97561px 4.97561px rgba(0, 0, 0, 0.02);
+    border-radius: 6.21951px;
+    width: 100%;
+    padding: 10px 60px;
+    margin-bottom: 20px;
+}
+
+.glosary__itemsTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    & img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.glosary__itemsDescription{
+
+    &__1, &__2, &__3{
+        display: none; 
+    }
+}
+

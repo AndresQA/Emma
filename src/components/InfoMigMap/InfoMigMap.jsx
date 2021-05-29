@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from "react-google-maps";
-import * as comunitiesData from './Comunities.json'
-import comunityMapStyle from './comunityMapStyle'
+import * as comunitiesData from './Consultories.json'
 import AppContext from '../../App/AppContext';
-import "./Comunity.scss"
 
 const Map = () => {
     const [selectedComunity, setSelectedComunity] = useState(null);
     const { UseDataMapsComunity } = AppContext.Consumer();
     const [dataMapsComunity, setDataMapsComunity] = UseDataMapsComunity();
 
-    const { nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad } = dataMapsComunity;
+    const {nombreComunidad, descripcionComunidad, direccionComunidad, telefonoComunidad, imgComunidad, email} = dataMapsComunity;
+
     useEffect(() => {
         setDataMapsComunity("");
     }, [])
+
     return (
-        <GoogleMap defaultZoom={13} defaultCenter={{
-            lat: 3.412414505047919,
-            lng: -76.52585785099772
+        <GoogleMap defaultZoom={6} defaultCenter={{
+            lat: 3.8677971220831284,
+            lng: -73.43140983442527
         }}
         >
             {comunitiesData.features.map((comunities) => (
@@ -29,11 +29,9 @@ const Map = () => {
                     }}
                     onClick={() => {
                         setSelectedComunity(comunities);
-                        setDataMapsComunity({
-                            ...dataMapsComunity, descripcionComunidad: comunities.properties.DESCRIPTIO, nombreComunidad: comunities.properties.NAME,
-                            direccionComunidad: comunities.properties.ADDRESS, telefonoComunidad: comunities.properties.PHONE_NUMBER,
-                            imgComunidad: comunities.properties.PICTURE
-                        });
+                        setDataMapsComunity({ ...dataMapsComunity, descripcionComunidad:  comunities.properties.DESCRIPTIO, nombreComunidad:  comunities.properties.NAME,
+                            direccionComunidad:  comunities.properties.ADDRESS, telefonoComunidad:  comunities.properties.PHONE_NUMBER, 
+                            imgComunidad:  comunities.properties.PICTURE, email:  comunities.properties.EMAIL});
                     }}
                     icon={{
                         url: '/icons/Marker.png',
@@ -54,7 +52,8 @@ const Map = () => {
                     <div className="mapTag">
                         <img className="mapImgTag" src={selectedComunity.properties.PICTURE} alt="" />
                         <h3>{selectedComunity.properties.NAME}</h3>
-                        <p>{selectedComunity.properties.ADDRESS}</p>
+                        <p>{selectedComunity.properties.PHONE_NUMBER}</p>
+                        <p>{selectedComunity.properties.EMAIL}</p>
                     </div>
                 </InfoWindow>
 
@@ -66,7 +65,7 @@ const Map = () => {
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-const Comunity = () => {
+const InfoMigMap = () => {
     const { useFaq } = AppContext.Consumer();
     const [type, Step] = useFaq();
 
@@ -77,7 +76,7 @@ const Comunity = () => {
 
     return (
         <div className="comunity">
-            <h1>Comunidad</h1>
+            <h1>Espacio Jurídico</h1>
 
             <WrappedMap
                 googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDtYBdEwc_JoqUrA-GDkOwmv-K0YVrAoAw"}
@@ -89,4 +88,4 @@ const Comunity = () => {
     )
 }
 
-export default Comunity;
+export default InfoMigMap;
