@@ -21,22 +21,26 @@ const News = () => {
                     <p>Estoy aquí para ayudarte, déjame saber si necesitas ayuda. </p>
                 </div>
                 <Link to="/inicio/chat">
-                <div className="news__banner__buttomChat">
-                    <img src="/icons/chat.png" className="" alt="" />
-                    <p>Chat</p>
-                </div>
+                    <div className="news__banner__buttomChat">
+                        <img src="/icons/chat.png" className="" alt="" />
+                        <p>Chat</p>
+                    </div>
                 </Link>
             </div>
             <h1 className="firstTitle">Lo más buscado</h1>
             <div className="news__bannerCards">
-                <div className="news__bannerItems">
-                    <h4>Urgencia Medica</h4>
-                    <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
-                </div>
-                <div className="news__bannerItems">
-                    <h4>Solicitud de Refugio</h4>
-                    <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
-                </div>
+                <Link to="/inicio/Salud/Urgencia">
+                    <div className="news__bannerItems">
+                        <h4>Urgencia Medica</h4>
+                        <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
+                    </div>
+                </Link>
+                <Link to="/inicio/Ruta_Migratoria/formulario">
+                    <div className="news__bannerItems">
+                        <h4>Solicitud de Refugio</h4>
+                        <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
+                    </div>
+                </Link>
                 <div className="news__bannerItems">
                     <h4>Renovación PEP</h4>
                     <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
