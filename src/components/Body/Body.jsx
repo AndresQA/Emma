@@ -6,10 +6,10 @@ import FlagIcon from '@material-ui/icons/Flag';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import RLink from "../../constants/Routes/RLink";
 import AppContext from "../../App/AppContext";
-import User from "../../constants/Firebase/User";
 import PanelInformation from "../PanelInformation/PanelInformation";
 
 import "./Body.scss";
+import ChatSidebar from "../ChatSidebar";
 
 const Body = (props) => {
 
@@ -20,8 +20,8 @@ const Body = (props) => {
     return <div className={"Body" + (isLogin === false ? " login" : "")}>
         {isLogin === true ? <Sidebar /> : <></>}
         <Contenido {...props} />
-        {isLogin === true ? <PanelInformation /> : <></>}
-
+        {isLogin === true ? <> <PanelInformation /> <ChatSidebar/> </> : <></>}
+        
     </div>
 }
 

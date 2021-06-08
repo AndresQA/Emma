@@ -1,0 +1,72 @@
+.ChatSidebar {
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+    &__container {
+        &__header {
+            background: white;
+            width: 400px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            padding: 10px 10px;
+
+            &:hover {
+                background: blueviolet;
+                cursor: pointer;
+            }
+
+            &.view{
+                background: yellow;
+            }
+        }
+
+        &__body {
+            background: white;
+
+         
+        
+
+            &__mensajes {
+                list-style: none;
+                padding: 0 10px;
+                margin: 0;
+
+               
+                overflow-y: auto;
+
+                &__item {
+                    padding: 2px 0;
+                    &.my {
+                        .ChatSidebar__container__body__mensajes__item__p {
+                            margin-left: auto;
+                            text-align: right;
+                            background: blueviolet;
+                        }
+                    }
+                    &__p {
+                        width: fit-content;
+                        margin: 0;
+                        padding: 2px 5px;
+                        border-radius: 7px;
+                        background: darkturquoise;
+                        color: white;
+                    }
+                }
+            }
+
+            &__acciones{
+                &__container{
+                    &__input{
+                        width: 80%;
+                    }
+                    &__send{
+                        width: 20%;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
