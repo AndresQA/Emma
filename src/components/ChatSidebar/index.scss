@@ -1,37 +1,37 @@
 .ChatSidebar {
     position: absolute;
     bottom: 0;
-    right: 40px;
+    right: 20px;
     &__container {
         &__header {
-            background: white;
+            background: #7241a6;
             width: 400px;
             border-radius: 10px 10px 0 0;
             text-align: center;
             padding: 10px 10px;
+            color: white;
 
             &:hover {
-                background: blueviolet;
+                background: #864bc5;
                 cursor: pointer;
             }
 
-            &.view{
-                background: yellow;
+            &.view {
+                background: #7241a6;
             }
         }
 
         &__body {
             background: white;
 
-         
-        
-
             &__mensajes {
                 list-style: none;
-                padding: 0 10px;
+                padding: 20px 20px;
                 margin: 0;
+                max-width: 400px;
+                height: 500px;
+                max-height: 500px;
 
-               
                 overflow-y: auto;
 
                 &__item {
@@ -40,33 +40,58 @@
                         .ChatSidebar__container__body__mensajes__item__p {
                             margin-left: auto;
                             text-align: right;
-                            background: blueviolet;
+                            background: #eff0f6;
+                            color: #4e4b66;
+                            padding: 8px 15px;
+
                         }
                     }
                     &__p {
                         width: fit-content;
                         margin: 0;
-                        padding: 2px 5px;
+                        padding: 8px 15px;
                         border-radius: 7px;
-                        background: darkturquoise;
+                        background: #7241a6;
                         color: white;
                     }
                 }
             }
 
-            &__acciones{
-                &__container{
-                    &__input{
-                        width: 80%;
+            &__acciones {
+                width: 100%;
+
+                &__container {
+                    padding: 10px 8px;
+                    width: 100%;
+                    display: flex;
+                    &__input {
+                        width: 90%;
+                        height: 40px;
+                        border: 0;
+                        border-radius: 10px;
+                        background-color: #DFE3EC;
+                        padding-left: 20px;
+                        outline: none;
                     }
-                    &__send{
-                        width: 20%;
-                        &:hover{
+                    &__send {
+                        margin-left: 10px !important;
+                        width: 10% !important;
+                        background-color: #8349C1 !important;
+                        &:hover {
                             cursor: pointer;
                         }
                     }
                 }
             }
         }
+    }
+}
+
+.messageAdmin {
+    display: flex;
+    align-items: center;
+    & img {
+        height: 40px;
+        margin-right: 10px;
     }
 }

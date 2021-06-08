@@ -3,6 +3,7 @@ import Carusel from '../components/Carousel/Carousel';
 import AppContext from '../App/AppContext';
 import './News.scss'
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 const News = () => {
 
     const { useFaq } = AppContext.Consumer();
@@ -14,18 +15,33 @@ const News = () => {
 
     return (
         <div className="news">
+
+
+            <div className="boarding">
+                <div className="boarding__Container">
+                    <div className="boarding__Close">
+                        <img src="/icons/close.svg" alt="" />
+                    </div>
+                    <img src="/images/boarding1.png" alt="" />
+                    <h2>Tu ruta</h2>
+                    <p>Aquí encontraras los diferentes tramites en el caso de que seas un migrante irregular o regular.</p>
+                    <Button variant="contained" color="primary" className="next__style">
+                        Siguiente
+                    </Button>
+
+                </div>
+            </div>
+
+
+
+
+
             <div className="news__banner">
                 <img src="/images/emmahome.png" className="news__bannerEmmaImg" alt="" />
                 <div className="news__banner__text">
                     <h3>Hola, soy Emma</h3>
                     <p>Estoy aquí para ayudarte, déjame saber si necesitas ayuda. </p>
                 </div>
-                <Link to="/inicio/chat">
-                    <div className="news__banner__buttomChat">
-                        <img src="/icons/chat.png" className="" alt="" />
-                        <p>Chat</p>
-                    </div>
-                </Link>
             </div>
             <h1 className="firstTitle">Lo más buscado</h1>
             <div className="news__bannerCards">

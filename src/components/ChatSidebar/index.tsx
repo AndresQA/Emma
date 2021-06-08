@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import { useEffect, useRef, useState } from "react";
 import TSChat from "../../constants/Chat/Chat";
 import ChatManager from "../../constants/Chat/ChatManager";
@@ -5,6 +6,7 @@ import Mensaje from "../../constants/Chat/Mensaje";
 import Database from "../../constants/Firebase/Database";
 import User from "../../constants/Firebase/User";
 import DB_ROUTES from "../../constants/Routes/DBRoutes";
+import Icon from '@material-ui/core/Icon';
 import "./index.scss";
 const ChatSidebar = () => {
 
@@ -74,21 +76,32 @@ const ChatSidebar = () => {
 
     return <div className="ChatSidebar">
         <div className="ChatSidebar__container">
-            <div className={"ChatSidebar__container__header" + (isView ? " view" : "")} onClick={() => setIsView(!isView)}>Chat</div>
+            <div className={"ChatSidebar__container__header" + (isView ? " view" : "")} onClick={() => setIsView(!isView)}>Habla con Emma</div>
             <div className={"ChatSidebar__container__body"}>
                 {isView ? <>
                     <ul className="ChatSidebar__container__body__mensajes">
                         {mensajes.map(({ userID, msg }) => {
                             const remitente = userID === User.getUID();
-                            return <li className={"ChatSidebar__container__body__mensajes__item" + (remitente ? " my" : "")}>
-                                <p className={"ChatSidebar__container__body__mensajes__item__p"}>{msg}</p>
-                            </li>
+                            return <div className={!remitente ? "messageAdmin" : ""}>
+                                {!remitente ? <img src="/icons/emmachat.png" alt="" /> : <></>}
+                                <li className={"ChatSidebar__container__body__mensajes__item" + (remitente ? " my" : "")}>
+
+                                    <p className={"ChatSidebar__container__body__mensajes__item__p"}>{msg}</p>
+                                </li>
+
+                            </div>
                         })}
                     </ul>
                     <div className="ChatSidebar__container__body__acciones">
                         <div className="ChatSidebar__container__body__acciones__container">
-                            <input className="ChatSidebar__container__body__acciones__container__input" ref={refInput} type="text" />
-                            <button className="ChatSidebar__container__body__acciones__container__send" onClick={onSend}>Enviar</button>
+                            <input className="ChatSidebar__container__body__acciones__container__input" ref={refInput} type="text" placeholder="Preguntale a emma" />
+                            <Button className="ChatSidebar__container__body__acciones__container__send"
+                                variant="contained"
+                                color="primary"
+                                onClick={onSend}
+                                >
+                                <Icon>send</Icon>
+                             </Button>
                         </div>
                     </div>
 

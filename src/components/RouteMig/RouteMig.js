@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { Route, Link, Redirect, useHistory } from 'react-router-dom';
 import AppContext from '../../App/AppContext';
@@ -15,6 +16,23 @@ const RouteMig = () => {
 
     return (
         <div className="routeMig">
+
+            <div className="boarding">
+                <div className="boarding__Container">
+                    <div className="boarding__Close">
+                        <img src="/icons/close.svg" alt="" />
+                    </div>
+                    <img src="/images/boarding2.png" alt="" />
+                    <h2>Tu ruta</h2>
+                    <p>Aquí encontraras los diferentes tramites en el caso de que seas un migrante irregular o regular.</p>
+                    <Button variant="contained" color="primary" className="next__style">
+                    Siguiente
+                    </Button>
+
+                </div>
+            </div>
+
+
             <h1>Regulariza tu situación</h1>
             <div className="news__bannerCards">
                 <Link to="/inicio/Ruta_Migratoria/formulario">
