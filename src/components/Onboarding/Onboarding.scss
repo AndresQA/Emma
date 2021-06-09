@@ -58,3 +58,36 @@
         padding: 8px 30px;
     }
 }
+
+.boardBtn{
+   
+
+    &__next{
+        right: 10px;
+        position: absolute;
+        top: 45%;
+    }
+
+    &__prev{
+        left: 10px;
+        position: absolute;
+        top: 45%;
+    }
+}
+
+.progress{
+    display: flex;
+    margin-top: 20px;
+
+    &__dot{
+        width: 10px;
+        height: 10px;
+        background-color: rgb(168, 168, 168);
+        border-radius: 10px;
+        margin: 0px 5px;
+
+    }
+}
+.selected__dot{
+    background-color: #7241A6;
+}
