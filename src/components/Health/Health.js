@@ -2,37 +2,24 @@ import { Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../../App/AppContext';
+import Onboarding from '../Onboarding/Onboarding';
 
 const Health = () => {
 
-    const { useFaq } = AppContext.Consumer();
+    const { useFaq, useBoard, useShowBoard } = AppContext.Consumer();
     const [type, Step] = useFaq();
+    const [stepBoard, setStepBoard] = useBoard();
+    const [onShowBoard, setShowBoard] = useShowBoard();
 
     useEffect(() => {
         Step("Notification");
+        setStepBoard(2)
     }, [])
 
     return (
         <div >
 
-
-            <div className="boarding">
-                <div className="boarding__Container">
-                    <div className="boarding__Close">
-                        <img src="/icons/close.svg" alt="" />
-                    </div>
-                    <img src="/images/boarding3.png" alt="" />
-                    <h2>Tu ruta</h2>
-                    <p>Aquí encontraras los diferentes tramites en el caso de que seas un migrante irregular o regular.</p>
-                    <Button variant="contained" color="primary" className="next__style">
-                        Siguiente
-                    </Button>
-
-                </div>
-            </div>
-
-
-
+            {onShowBoard ? <Onboarding /> : <></>}
 
             <h1>Salud</h1>
             <div className="news__bannerCards">

@@ -4,37 +4,23 @@ import AppContext from '../App/AppContext';
 import './News.scss'
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import Onboarding from '../components/Onboarding/Onboarding';
 const News = () => {
 
-    const { useFaq } = AppContext.Consumer();
+    const { useFaq, useBoard, useShowBoard } = AppContext.Consumer();
     const [type, Step] = useFaq();
+    const [stepBoard, setStepBoard] = useBoard();
+    const [onShowBoard, setShowBoard] = useShowBoard();
 
     useEffect(() => {
         Step("Notification");
+        setStepBoard(0);
     }, [])
 
     return (
         <div className="news">
 
-
-            <div className="boarding">
-                <div className="boarding__Container">
-                    <div className="boarding__Close">
-                        <img src="/icons/close.svg" alt="" />
-                    </div>
-                    <img src="/images/boarding1.png" alt="" />
-                    <h2>Tu ruta</h2>
-                    <p>Aquí encontraras los diferentes tramites en el caso de que seas un migrante irregular o regular.</p>
-                    <Button variant="contained" color="primary" className="next__style">
-                        Siguiente
-                    </Button>
-
-                </div>
-            </div>
-
-
-
-
+            {onShowBoard ? <Onboarding /> : <></>}
 
             <div className="news__banner">
                 <img src="/images/emmahome.png" className="news__bannerEmmaImg" alt="" />

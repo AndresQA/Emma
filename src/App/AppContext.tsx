@@ -7,6 +7,8 @@ interface IStylePage {
 
 type IFAQ = "Faq" | "Notification" | "Step"
 
+type IONBOARD = number;
+type ISHOWBOARD = boolean;
 
 interface IDataForms {
     formaIngreso: string;
@@ -41,7 +43,8 @@ type IUseFaq = [IFAQ, React.Dispatch<React.SetStateAction<IFAQ>>]
 type IUseDataForms = [any, React.Dispatch<React.SetStateAction<any>>]
 type IUseDataMapsComunity = [any, React.Dispatch<React.SetStateAction<any>>]
 type IUsePageRouteMig = [number, React.Dispatch<React.SetStateAction<number>>]
-
+type IUseBoard = [IONBOARD, React.Dispatch<React.SetStateAction<IONBOARD>>]
+type IUseShowBoard = [ISHOWBOARD, React.Dispatch<React.SetStateAction<ISHOWBOARD>>]
 
 
 
@@ -53,6 +56,8 @@ export interface IPropsContext {
     useDataForms: () => IUseDataForms
     UseDataMapsComunity: () => IUseDataMapsComunity
     usePageRouteMig: () => IUsePageRouteMig
+    useBoard: () => IUseBoard
+    useShowBoard: () => IUseShowBoard
 }
 
 const AppContext = createContext<IPropsContext>();
@@ -64,6 +69,10 @@ export const AppContextProvider = (props: Props<any>) => {
         header: "DEFAULT"
     });
     const [faq, setFaq] = useState<IFAQ>("Notification");
+
+    const [onBoarding, setOnBiarding] = useState<IONBOARD>(0)
+
+    const [onShowBoard, setShowBoard] = useState<ISHOWBOARD>(true)
 
     const [pageRouteMig, setPageRouteMig] = useState(1);
 
@@ -114,6 +123,8 @@ export const AppContextProvider = (props: Props<any>) => {
         const useDataForms: () => IUseDataForms = () => [dataForms, setDataForms]
         const UseDataMapsComunity: () => IUseDataMapsComunity = () => [dataMapsComunity, setDataMapsComunity]
         const usePageRouteMig: () => IUsePageRouteMig = () => [pageRouteMig, setPageRouteMig]
+        const useBoard: () => IUseBoard = () => [onBoarding, setOnBiarding]
+        const useShowBoard: () => IUseShowBoard = () => [onShowBoard, setShowBoard]
 
         return {
             useLogin,
@@ -123,8 +134,10 @@ export const AppContextProvider = (props: Props<any>) => {
             useDataForms,
             UseDataMapsComunity,
             usePageRouteMig,
+            useBoard,
+            useShowBoard,
         }
-    }, [isLoging, pathName, style, faq, dataForms, dataMapsComunity, pageRouteMig]);
+    }, [isLoging, pathName, style, faq, dataForms, dataMapsComunity, pageRouteMig, onBoarding, onShowBoard]);
 
     return <AppContext.Provider value={value} {...props} />
 }

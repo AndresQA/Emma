@@ -2,36 +2,26 @@ import { Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { Route, Link, Redirect, useHistory } from 'react-router-dom';
 import AppContext from '../../App/AppContext';
+import Onboarding from '../Onboarding/Onboarding';
 import './routeMig.scss'
 
 const RouteMig = () => {
 
-    const { useFaq } = AppContext.Consumer();
+    const { useFaq, useBoard, useShowBoard } = AppContext.Consumer();
     const [type, Step] = useFaq();
+    const [stepBoard, setStepBoard] = useBoard();
+    const [onShowBoard, setShowBoard] = useShowBoard();
 
     useEffect(() => {
         Step("Notification");
+        setStepBoard(1);
     }, [])
 
 
     return (
         <div className="routeMig">
 
-            <div className="boarding">
-                <div className="boarding__Container">
-                    <div className="boarding__Close">
-                        <img src="/icons/close.svg" alt="" />
-                    </div>
-                    <img src="/images/boarding2.png" alt="" />
-                    <h2>Tu ruta</h2>
-                    <p>Aquí encontraras los diferentes tramites en el caso de que seas un migrante irregular o regular.</p>
-                    <Button variant="contained" color="primary" className="next__style">
-                    Siguiente
-                    </Button>
-
-                </div>
-            </div>
-
+            {onShowBoard ? <Onboarding /> : <></>}
 
             <h1>Regulariza tu situación</h1>
             <div className="news__bannerCards">

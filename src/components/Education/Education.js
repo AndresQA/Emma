@@ -3,41 +3,24 @@ import { Link } from 'react-router-dom';
 import './Education.scss'
 import AppContext from '../../App/AppContext';
 import { Button } from '@material-ui/core';
+import Onboarding from '../Onboarding/Onboarding';
 
 const Education = () => {
 
-    const { useFaq } = AppContext.Consumer();
+    const { useFaq, useBoard, useShowBoard } = AppContext.Consumer();
     const [type, Step] = useFaq();
+    const [stepBoard, setStepBoard] = useBoard();
+    const [onShowBoard, setShowBoard] = useShowBoard();
 
     useEffect(() => {
         Step("Notification");
+        setStepBoard(3);
     }, [])
 
     return (
         <div className="education">
 
-
-
-
-            <div className="boarding">
-                <div className="boarding__Container">
-                    <div className="boarding__Close">
-                        <img src="/icons/close.svg" alt="" />
-                    </div>
-                    <img src="/images/boarding6.png" alt="" />
-                    <h2>Tu ruta</h2>
-                    <p>Aquí encontraras los diferentes tramites en el caso de que seas un migrante irregular o regular.</p>
-                    <Button variant="contained" color="primary" className="next__style">
-                        Siguiente
-                    </Button>
-
-                </div>
-            </div>
-
-
-
-
-
+            {onShowBoard ? <Onboarding /> : <></>}
 
             <h1>Eduación</h1>
             <div className="news__bannerCards">
