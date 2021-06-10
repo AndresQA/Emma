@@ -22,6 +22,36 @@ const LearnRight = () => {
                         <h4>Renovación virtual de salvoconducto</h4>
                     </div>
                 </div>
+                <div className="news__bannerItemsContainer ">
+                    <img src="/images/salvoconducto2.png" alt="" />
+                    <div className="news__bannerItems bordercardsitems">
+                        <h4>Solicitud de refugio</h4>
+                    </div>
+                </div>
+                <div className="news__bannerItemsContainer ">
+                    <img src="/images/salvoconducto3.png" alt="" />
+                    <div className="news__bannerItems bordercardsitems">
+                        <h4>¿Qué es ACNUR?</h4>
+                    </div>
+                </div>
+                <div className="news__bannerItemsContainer ">
+                    <img src="/images/salvoconducto4.png" alt="" />
+                    <div className="news__bannerItems bordercardsitems">
+                        <h4>PEPFF</h4>
+                    </div>
+                </div>
+                <div className="news__bannerItemsContainer ">
+                    <img src="/images/salvoconducto5.png" alt="" />
+                    <div className="news__bannerItems bordercardsitems">
+                        <h4>Renovación virtual de salvoconducto</h4>
+                    </div>
+                </div>
+                <div className="news__bannerItemsContainer ">
+                    <img src="/images/salvoconducto6.png" alt="" />
+                    <div className="news__bannerItems bordercardsitems">
+                        <h4>Afiliación a salud</h4>
+                    </div>
+                </div>
             </div>
         </div>
     )

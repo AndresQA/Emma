@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './FormRouteMig.scss'
 import { Route, Link, Redirect, useHistory } from 'react-router-dom';
-import { Button, FormControl, InputLabel, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
+import { Button, Checkbox, FormControl, FormControlLabel, InputLabel, makeStyles, MenuItem, Select, TextField, withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -28,6 +28,18 @@ const FormRouteMig = () => {
         setNombre(User.information.nombre)
         setDataForms({ ...dataForms, nombreSolicitante: User.information.nombre })
     }, [isLoging])
+
+    const GreenCheckbox = withStyles({
+        root: {
+            color: "#7241A6",
+            '&$checked': {
+                color: "#7241A6",
+            },
+        },
+        checked: {},
+    })((props) => <Checkbox color="default" {...props} />);
+
+
 
 
 
@@ -306,6 +318,21 @@ const FormRouteMig = () => {
                 <h4>Solicitante</h4>
                 <hr />
                 <h3 className="formRouteMig__title">Selecciones los ducmentos los cuales disponga en sus manos.</h3>
+                <p>Los anexos son diferentes documentos los cuales certifican su autenticidad como solicitante la de sus beneficiarios. A continuación, se mostrarán una serie de anexos y es importante marcar con los cuales cuenta usted y sus beneficiarios. Por lo menos, el solicitante y los beneficiarios deben contar con al menos 1 de los documentos.</p>
+
+                <FormControlLabel
+                    control={<GreenCheckbox name="checkedG" />}
+                    label="Identifiación Venezolana"
+                />
+                  <FormControlLabel
+                    control={<GreenCheckbox name="checkedG" />}
+                    label="Pasaporte"
+                />
+                  <FormControlLabel
+                    control={<GreenCheckbox name="checkedG" />}
+                    label="Declaración Juramentada"
+                />
+
                 <div className="lastButton">
                     <Button className="nextBtn" onClick={() => handlePageChange(4)} variant="contained">Siguiente</Button>
                 </div>
