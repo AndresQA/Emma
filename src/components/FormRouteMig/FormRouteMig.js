@@ -17,11 +17,14 @@ import FormDescription from '../FormDescription/FormDescription'
 
 
 const FormRouteMig = () => {
-    const { useFaq, useDataForms, useLogin, usePageRouteMig } = AppContext.Consumer();
+    const { useFaq, useDataForms, useLogin, usePageRouteMig, useCompleted } = AppContext.Consumer();
     const [nombre, setNombre] = useState("Nombre de usuario");
+    const [beneficiarioNull, setbeneficiarioNull] = useState(false);
+    const [finishForm, setfinishForm] = useState(false);
     const [pageRouteMig, setPageRouteMig] = usePageRouteMig();
     const [isLoging, setIsLogin] = useLogin();
     const [type, Step] = useFaq();
+    const [onCompleted, setCompleted] = useCompleted();
 
     useEffect(() => {
         Step("Step");
@@ -87,6 +90,9 @@ const FormRouteMig = () => {
 
     const handleChangeNombreBeneficiario = (event) => {
         setDataForms({ ...dataForms, nombreBeneficiario: event.target.value })
+        if (nombreBeneficiario == "" || nombreBeneficiario == null) {
+            setbeneficiarioNull(true);
+        }
     }
     const handleChangeIdBeneficiario = (event) => {
         setDataForms({ ...dataForms, idBeneficiario: event.target.value })
@@ -101,15 +107,20 @@ const FormRouteMig = () => {
         setDataForms({ ...dataForms, lugarIngresoBeneficiario: event.target.value })
     }
 
+    const handleFinishForm = () => {
+        handlePageChange(4)
+         setCompleted(true)
+    }
+
     switch (page) {
 
         case 0:
-            return <div className="formRouteMig" key="4">
+            return <div className="formRouteMig" key="0">
                 <h1>Solicitud de Refugio</h1>
                 <hr />
 
-                <FormDescription/>
-               
+                <FormDescription />
+
             </div>
             break;
 
@@ -232,15 +243,15 @@ const FormRouteMig = () => {
                         <div className="fullName">
                             <p>Nombre completo del Beneficiario</p>
                             <TextField className="fullName__textfield" id="outlined-basic" variant="outlined"
-                                placeholder="Ej: Michael Rojas" onClick={handleChangeNombreBeneficiario} />
+                                placeholder="Ej: Michael Rojas" onChange={handleChangeNombreBeneficiario} />
                         </div>
                         <div className="">
                             <p>Número de identificacion venezolana</p>
-                            <TextField id="outlined-basic" variant="outlined" onClick={handleChangeIdBeneficiario} />
+                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeIdBeneficiario} />
                         </div>
                         <div className="">
                             <p>Edad</p>
-                            <TextField id="outlined-basic" variant="outlined" onClick={handleChangeEdadBeneficiario} />
+                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeEdadBeneficiario} />
                         </div>
 
                     </div>
@@ -324,24 +335,47 @@ const FormRouteMig = () => {
                 <h1>Solicitud de Refugio</h1>
                 <h4>Solicitante</h4>
                 <hr />
-                <h3 className="formRouteMig__title">Selecciones los ducmentos los cuales disponga en sus manos.</h3>
+                <h3 className="formRouteMig__title">Selecciones los documentos los cuales disponga en sus manos.</h3>
                 <p>Los anexos son diferentes documentos los cuales certifican su autenticidad como solicitante la de sus beneficiarios. A continuación, se mostrarán una serie de anexos y es importante marcar con los cuales cuenta usted y sus beneficiarios. Por lo menos, el solicitante y los beneficiarios deben contar con al menos 1 de los documentos.</p>
 
-                <FormControlLabel
-                    control={<GreenCheckbox name="checkedG" />}
-                    label="Identifiación Venezolana"
-                />
-                  <FormControlLabel
-                    control={<GreenCheckbox name="checkedG" />}
-                    label="Pasaporte"
-                />
-                  <FormControlLabel
-                    control={<GreenCheckbox name="checkedG" />}
-                    label="Declaración Juramentada"
-                />
+                <div className="formRouteMig__checks">
+                    <FormControlLabel
+                        control={<GreenCheckbox name="checkedG" />}
+                        label="Identifiación Venezolana"
+                    />
+                    <FormControlLabel
+                        control={<GreenCheckbox name="checkedG" />}
+                        label="Pasaporte"
+                    />
+                    <FormControlLabel
+                        control={<GreenCheckbox name="checkedG" />}
+                        label="Declaración Juramentada"
+                    />
+                </div>
+                {beneficiarioNull ? <div>
+                    <h4>Beneficiario</h4>
+                    <hr />
+                    <div className="formRouteMig__checks">
+                        <FormControlLabel
+                            control={<GreenCheckbox name="checkedG" />}
+                            label="Identifiación Venezolana"
+                        />
+                        <FormControlLabel
+                            control={<GreenCheckbox name="checkedG" />}
+                            label="Pasaporte"
+                        />
+                        <FormControlLabel
+                            control={<GreenCheckbox name="checkedG" />}
+                            label="Declaración Juramentada"
+                        />
+                    </div>
+
+                </div> : <></>}
+
+
 
                 <div className="lastButton">
-                    <Button className="nextBtn" onClick={() => handlePageChange(4)} variant="contained">Siguiente</Button>
+                    <Button className="nextBtn" onClick={handleFinishForm} variant="contained">Siguiente</Button>
                 </div>
 
             </div>
@@ -354,6 +388,17 @@ const FormRouteMig = () => {
                 <hr />
 
                 <PDF></PDF>
+                <div className="sendEmail">
+                    <a onClick={() => setfinishForm(true)} href="mailto:cjuridico@icesi.edu.co">Click para enviar al correo de migracion colombia</a>
+
+                </div>
+                {finishForm ?
+                    <div className="lastButton">
+                        <Link to="/inicio/Ruta_Migratoria">
+                            <Button className="nextBtn" onClick={() => handlePageChange(0)} variant="contained">Finalizar</Button>
+                        </Link>
+                    </div> : <></>
+                }
             </div>
             break;
 

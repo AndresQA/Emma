@@ -4,26 +4,37 @@ import AppContext from '../../App/AppContext';
 import './FormDescription.scss'
 
 const FormDescription = () => {
-    const { useFaq } = AppContext.Consumer();
+    const { useFaq, usePageRouteMig } = AppContext.Consumer();
     const [type, Step] = useFaq();
+    const [showBoarding, setShowBoarding] = useState(false);
+    const [pageRouteMig, setPageRouteMig] = usePageRouteMig();
 
     useEffect(() => {
         Step("Notification");
-    }, [])
+    }, [type == 0])
+
+    const handleContinue = () =>{
+        setShowBoarding(false)
+        setPageRouteMig(1)
+        
+    }
+
 
     return (
         <div className="formDescription">
-
-            <div className="boarding">
+            {showBoarding ?  <div className="boarding">
                 <div className="boarding__Container">
                     <img src="/images/boarding6.png" alt="" />
                     <h2>¡Hagamos juntos la solicitud de refugio!</h2>
-                    <p>A continuación, te realizare una encuesta preguntándote diferentes datos personales para completa tu solicitud de refugio. ESTOS DATOS NO SE ALMACENARAN Y SOLO SE UTILIZARAN PARA REALIZAR LA SOLICITUD. </p>
-                    <Button className="formDescription__info__btn" variant="contained" color="primary">
+                    <p>A continuación, te realizare una encuesta preguntándote diferentes datos personales para completa tu solicitud de refugio. 
+                        <strong> ESTOS DATOS NO SE ALMACENARAN Y SOLO SE UTILIZARAN PARA REALIZAR LA SOLICITUD</strong>. </p>
+                    <Button className="formDescription__info__btn" key="2" variant="contained" color="primary" onClick={handleContinue}>
                         Entendido
                      </Button>
                 </div>
-            </div>
+            </div> : <></>}
+
+           
 
 
             <div className="formDescription__info">
@@ -32,7 +43,7 @@ const FormDescription = () => {
                     <p>Un refugiado también es una persona que se ha visto obligada a salir de su país porque su vida, seguridad o libertad han sido amenazadas por violencia generalizada, agresión extranjera, conflictos internos, violación masiva de los derechos humanos u otras circunstancias que han perturbado gravemente el orden público.
             <br />
             Un refugiado normalmente ingreso al país por medio de entradas fronterizas ilegales, sin permisos o pasaporte vigente. </p>
-                    <Button className="formDescription__info__btn" variant="contained" color="primary">
+                    <Button className="formDescription__info__btn" key="1" variant="contained" color="primary" onClick={()=> setShowBoarding(true)}>
                         Soy refugiado
                      </Button>
                 </div>

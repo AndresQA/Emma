@@ -3,9 +3,13 @@ import AppContext from '../../App/AppContext';
 import './PanelInformation.scss'
 
 const Step = () => {
-    const { useDataForms, usePageRouteMig } = AppContext.Consumer();
+    const { useDataForms, usePageRouteMig, useCompleted, useDownloaded } = AppContext.Consumer();
 
     const [data, setData] = useDataForms();
+
+    const [onCompleted, setCompleted] = useCompleted();
+
+    const [onDownloaded, setDownloaded] = useDownloaded();
 
     const [pageRouteMig, setPageRouteMig] = usePageRouteMig();
 
@@ -14,9 +18,9 @@ const Step = () => {
     useEffect(() => {
         const props = Object.entries(data);
         var counter = 0;
-        props.forEach((prop)=>{
+        props.forEach((prop) => {
             const [key, value] = prop;
-            if(value != "" && value != undefined){
+            if (value != "" && value != undefined) {
                 counter++;
             }
         })
@@ -40,30 +44,30 @@ const Step = () => {
                     <div className="index__contentRightMenu__boxSteps">
 
                         <div className="index__contentRightMenu__boxProgessBar">
-                            <progress min="0" max="100" value={progress} className="progressBar"></progress>
-                            <p>{Math.round(progress, 0)}% completado</p>
+                            <progress min="0" max="100" value={onCompleted ? 100 : progress} className="progressBar"></progress>
+                            <p>{onCompleted ? 100 : Math.round(progress, 0)}% completado</p>
                         </div>
                         <div className="infoSteps">
-                            <div className="circle" style={{borderColor : pageRouteMig >= 2 ? "blueviolet" : ""}}></div>
-                            <p style={{color : pageRouteMig >= 2 ? "blueviolet" : ""}}>Datos Personales</p>
-
-                        </div>
-
-                        <div className="infoSteps">
-                            <div className="circle" style={{borderColor : pageRouteMig >= 3 ? "blueviolet" : ""}}></div>
-                            <p style={{color : pageRouteMig >= 3 ? "blueviolet" : ""}}>Datos Beneficiarios</p>
+                            <div className="circle" style={{ borderColor: pageRouteMig >= 2 ? "blueviolet" : "" }}></div>
+                            <p style={{ color: pageRouteMig >= 2 ? "blueviolet" : "" }}>Datos Personales</p>
 
                         </div>
 
                         <div className="infoSteps">
-                            <div className="circle" style={{borderColor : pageRouteMig >= 4 ? "blueviolet" : ""}}></div>
-                            <p style={{color : pageRouteMig >= 4 ? "blueviolet" : ""}}>Anexos</p>
+                            <div className="circle" style={{ borderColor: pageRouteMig >= 3 ? "blueviolet" : "" }}></div>
+                            <p style={{ color: pageRouteMig >= 3 ? "blueviolet" : "" }}>Datos Beneficiarios</p>
 
                         </div>
 
                         <div className="infoSteps">
-                            <div className="circle" style={{borderColor : pageRouteMig >= 5 ? "blueviolet" : ""}}></div>
-                            <p style={{color : pageRouteMig >= 5 ? "blueviolet" : ""}}>Descargar Solicitud</p>
+                            <div className="circle" style={{ borderColor: pageRouteMig >= 4 ? "blueviolet" : "" }}></div>
+                            <p style={{ color: pageRouteMig >= 4 ? "blueviolet" : "" }}>Anexos</p>
+
+                        </div>
+
+                        <div className="infoSteps">
+                            <div className="circle" style={{ borderColor: onDownloaded ? "blueviolet" : "" }}></div>
+                            <p style={{ color: onDownloaded ? "blueviolet" : "" }}>Descargar Solicitud</p>
 
                         </div>
 

@@ -15,13 +15,6 @@ const Onboarding = () => {
     const [pathName, setPathName] = usePathname()
     const [onShowBoard, setShowBoard] = useShowBoard();
 
-
-    const handlefinish = () => {
-        const board = document.querySelectorAll(".boarding");
-        board.style.display = "none";
-    }
-
-
     switch (stepBoard) {
         case 0:
             return <div className="boarding">

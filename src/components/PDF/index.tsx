@@ -14,8 +14,9 @@ interface PropsDocument {
 
 const PDF = () => {
 
-    const { useDataForms } = AppContext.Consumer()
+    const { useDataForms, useDownloaded } = AppContext.Consumer()
     const [dataForms, setDataForms] = useDataForms();
+    const [onDownloaded, setDownloaded] = useDownloaded();
 
     const refContainer = useRef<any>();
 
@@ -34,7 +35,7 @@ const PDF = () => {
             <PDFDownloadLink document={<Documento {...dataForms} />} fileName="formato.pdf">
                 {({ blob, url, loading, error }) =>
                     loading ? 'Loading document...' :
-                        <Button className="nextBtn" variant="contained">Descargar</Button>
+                        <Button className="nextBtn" onClick={()=> {setDownloaded(true)}} variant="contained">Descargar</Button>
 
                 }
             </PDFDownloadLink>

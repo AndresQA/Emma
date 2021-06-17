@@ -78,6 +78,8 @@ const HealthMap = () => {
         <div className="comunity">
             <h1>Urgencia Medica</h1>
 
+          
+
             <WrappedMap
                 googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDtYBdEwc_JoqUrA-GDkOwmv-K0YVrAoAw"}
                 loadingElement={<div style={{ height: `100%` }} />}
