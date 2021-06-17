@@ -13,13 +13,13 @@ import AddIcon from '@material-ui/icons/Add';
 import PDF from '../PDF';
 import AppContext from '../../App/AppContext';
 import User from '../../constants/Firebase/User';
+import FormDescription from '../FormDescription/FormDescription'
 
 
 const FormRouteMig = () => {
     const { useFaq, useDataForms, useLogin, usePageRouteMig } = AppContext.Consumer();
-
     const [nombre, setNombre] = useState("Nombre de usuario");
-
+    const [pageRouteMig, setPageRouteMig] = usePageRouteMig();
     const [isLoging, setIsLogin] = useLogin();
     const [type, Step] = useFaq();
 
@@ -28,6 +28,7 @@ const FormRouteMig = () => {
         setNombre(User.information.nombre)
         setDataForms({ ...dataForms, nombreSolicitante: User.information.nombre })
     }, [isLoging])
+
 
     const GreenCheckbox = withStyles({
         root: {
@@ -38,11 +39,6 @@ const FormRouteMig = () => {
         },
         checked: {},
     })((props) => <Checkbox color="default" {...props} />);
-
-
-
-
-
 
     const [dataForms, setDataForms] = useDataForms();
 
@@ -106,6 +102,17 @@ const FormRouteMig = () => {
     }
 
     switch (page) {
+
+        case 0:
+            return <div className="formRouteMig" key="4">
+                <h1>Solicitud de Refugio</h1>
+                <hr />
+
+                <FormDescription/>
+               
+            </div>
+            break;
+
         case 1:
             return <div className="formRouteMig" key="1">
                 <h1>Solicitud de Refugio</h1>

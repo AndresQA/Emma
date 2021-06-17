@@ -74,7 +74,7 @@ export const AppContextProvider = (props: Props<any>) => {
 
     const [onShowBoard, setShowBoard] = useState<ISHOWBOARD>(true)
 
-    const [pageRouteMig, setPageRouteMig] = useState(1);
+    const [pageRouteMig, setPageRouteMig] = useState(0);
 
     const [isLoging, setIsLogin] = useState<undefined | boolean>(undefined);
 
