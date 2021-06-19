@@ -27,10 +27,18 @@ const FormRouteMig = () => {
     const [onCompleted, setCompleted] = useCompleted();
 
     useEffect(() => {
-        Step("Step");
         setNombre(User.information.nombre)
         setDataForms({ ...dataForms, nombreSolicitante: User.information.nombre })
     }, [isLoging])
+
+    useEffect(() => {
+        
+        if (pageRouteMig == 0) {
+            Step("Notification");
+        } else {
+            Step("Step");
+        }
+    }, [pageRouteMig])
 
 
     const GreenCheckbox = withStyles({

@@ -23,7 +23,7 @@ const PanelInformation = () => {
             return <Step/>
             break;
     }
-    return <div></div>
+    return <div>No encontro</div>
 }
 
 export default PanelInformation;

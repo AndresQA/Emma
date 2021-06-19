@@ -73,14 +73,20 @@ const HealthMap = () => {
     const [type, Step] = useFaq();
     const [healthPage, setHealthPage] = useState(0);
 
+
     useEffect(() => {
-        Step("Faq");
-    }, [])
+        if (healthPage == 0) {
+            Step("Notification");
+        } else {
+            Step("Faq");
+        }
+    }, [healthPage])
 
 
     switch (healthPage) {
         case 0:
             return <div className="comunity">
+               
                 <h1>Urgencia Medica</h1>
                 <div className="formDescription">
                     <div className="formDescription__info">

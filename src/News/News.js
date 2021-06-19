@@ -5,12 +5,14 @@ import './News.scss'
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import Onboarding from '../components/Onboarding/Onboarding';
+import RLink from '../constants/Routes/RLink';
 const News = () => {
 
-    const { useFaq, useBoard, useShowBoard } = AppContext.Consumer();
+    const { useFaq, useBoard, useShowBoard, usePathname } = AppContext.Consumer();
     const [type, Step] = useFaq();
     const [stepBoard, setStepBoard] = useBoard();
     const [onShowBoard, setShowBoard] = useShowBoard();
+    const [pathName, setPathName] = usePathname()
 
     useEffect(() => {
         Step("Notification");
@@ -32,13 +34,13 @@ const News = () => {
             <h1 className="firstTitle">Lo más buscado</h1>
             <div className="news__bannerCards">
                 <Link to="/inicio/Salud/Urgencia">
-                    <div className="news__bannerItems">
+                    <div className="news__bannerItems"  onClick={() => { setPathName(RLink.SALUD) }}>
                         <h4>Urgencia Medica</h4>
                         <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>
                 <Link to="/inicio/Ruta_Migratoria/formulario">
-                    <div className="news__bannerItems">
+                    <div className="news__bannerItems" onClick={() => { setPathName(RLink.MIGRACION) }}>
                         <h4>Solicitud de Refugio</h4>
                         <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
                     </div>
