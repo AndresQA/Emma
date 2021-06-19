@@ -1,6 +1,9 @@
 .learnRight{
     width: 100%;
 }
+.news__bannerItemsContainer{
+    cursor: pointer;
+}
 
 .news__bannerItemsContainer{
     width: 100%;
@@ -14,4 +17,33 @@
 
 .bordercardsitems{
     border-radius: 0px 0px 6px 6px;
+}
+
+.learnRightViewer{
+    width: 100%;
+    height: 100vh;
+    background-color: blueviolet;
+    position: absolute;
+    top: -70px;
+    left: 0px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.185);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.learnRightViewer__Container{
+    width: 70%;
+    height: 95%;
+    background-color: white;
+    padding: 40px 40px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    position: relative;
+
+    & img{
+        width: 100%;
+    }
 }

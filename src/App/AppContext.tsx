@@ -11,6 +11,7 @@ type IONBOARD = number;
 type ISHOWBOARD = boolean;
 type ICOMPLETED = boolean;
 type IDOWNLOADED = boolean;
+type ISHOWINFOPIC = string;
 
 interface IDataForms {
     formaIngreso: string;
@@ -49,6 +50,8 @@ type IUseBoard = [IONBOARD, React.Dispatch<React.SetStateAction<IONBOARD>>]
 type IUseShowBoard = [ISHOWBOARD, React.Dispatch<React.SetStateAction<ISHOWBOARD>>]
 type IUseCompleted = [ICOMPLETED, React.Dispatch<React.SetStateAction<ICOMPLETED>>]
 type IUseDownloaded = [IDOWNLOADED, React.Dispatch<React.SetStateAction<IDOWNLOADED>>]
+type IUseShowInfoPic = [ISHOWINFOPIC, React.Dispatch<React.SetStateAction<ISHOWINFOPIC>>]
+
 
 export interface IPropsContext {
     useLogin: () => IUseLogin,
@@ -62,6 +65,7 @@ export interface IPropsContext {
     useShowBoard: () => IUseShowBoard
     useCompleted: () => IUseCompleted
     useDownloaded: () => IUseDownloaded
+    useShowInfoPic: () => IUseShowInfoPic
 }
 
 const AppContext = createContext<IPropsContext>();
@@ -81,6 +85,8 @@ export const AppContextProvider = (props: Props<any>) => {
     const [onCompleted, setCompleted] = useState<ICOMPLETED>(false)
 
     const [onDownloaded, setDownloaded] = useState<IDOWNLOADED>(false)
+
+    const [onShowInfoPic, setShowInfoPic] = useState<ISHOWINFOPIC>("")
 
     const [pageRouteMig, setPageRouteMig] = useState(0);
 
@@ -135,7 +141,7 @@ export const AppContextProvider = (props: Props<any>) => {
         const useShowBoard: () => IUseShowBoard = () => [onShowBoard, setShowBoard]
         const useCompleted: () => IUseCompleted = () => [onCompleted, setCompleted]
         const useDownloaded: () => IUseDownloaded = () => [onDownloaded, setDownloaded]
-
+        const useShowInfoPic: () => IUseShowInfoPic = () => [onShowInfoPic, setShowInfoPic]
 
         return {
             useLogin,
@@ -149,8 +155,9 @@ export const AppContextProvider = (props: Props<any>) => {
             useShowBoard,
             useCompleted,
             useDownloaded,
+            useShowInfoPic,
         }
-    }, [isLoging, pathName, style, faq, dataForms, dataMapsComunity, pageRouteMig, onBoarding, onShowBoard, onCompleted, onDownloaded]);
+    }, [isLoging, pathName, style, faq, dataForms, dataMapsComunity, pageRouteMig, onBoarding, onShowBoard, onCompleted, onDownloaded, onShowInfoPic]);
 
     return <AppContext.Provider value={value} {...props} />
 }
