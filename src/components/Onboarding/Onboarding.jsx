@@ -179,27 +179,19 @@ const Onboarding = () => {
         case 6:
             return <div className="boarding">
                 <div className="boarding__Container">
-             
-                        <ArrowBackIosSharpIcon style={{ fontSize: 40, color: "#7241A6" }} className="boardBtn__prev" onClick={() => setStepBoard(5)}/>
-                  
-                    <Link to="/inicio" onClick={() => { setPathName(RLink.INICIO, setShowBoard(false)) }}>
-                        <ArrowForwardIosSharpIcon style={{ fontSize: 40, color: "#7241A6" }} className="boardBtn__next" />
-                    </Link>
+
+                    <ArrowBackIosSharpIcon style={{ fontSize: 40, color: "#7241A6" }} className="boardBtn__prev" onClick={() => setStepBoard(5)} />
                     <div className="boarding__Close" onClick={() => setShowBoard(false)}>
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding3.png" alt="" />
                     <h2>Bienvenidos y bienvenidas</h2>
                     <p>Por último, te doy la bienvenida, espero ayudarte a solucionar tus problemas migratorios.</p>
-                    <div className="progress">
-                        <div className="progress__dot"></div>
-                        <div className="progress__dot"></div>
-                        <div className="progress__dot"></div>
-                        <div className="progress__dot"></div>
-                        <div className="progress__dot"></div>
-                        <div className="progress__dot"></div>
-                        <div className="progress__dot selected__dot"></div>
-                    </div>
+                    <Link to="/inicio" onClick={() => { setPathName(RLink.INICIO, setShowBoard(false)) }}>
+                        <Button className="formDescription__info__btn" key="2" variant="contained" color="primary" onClick={() => { setPathName(RLink.INICIO, setShowBoard(false)) }}>
+                            Comenzar
+                        </Button>
+                    </Link>
                 </div>
             </div>
             break;
