@@ -1,8 +1,8 @@
-import { Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../../App/AppContext';
 import Onboarding from '../Onboarding/Onboarding';
+import './Health.scss'
 
 const Health = () => {
 
@@ -29,10 +29,12 @@ const Health = () => {
                         <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>
-                <div className="news__bannerItems">
-                    <h4>Afiliación a salud</h4>
-                    <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
-                </div>
+                <Link to="/inicio/Salud/afiliacion">
+                    <div className="news__bannerItems">
+                        <h4>Afiliación a salud</h4>
+                        <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
+                    </div>
+                </Link>
             </div>
 
         </div>

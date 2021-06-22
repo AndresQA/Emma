@@ -34,7 +34,7 @@ const News = () => {
             <h1 className="firstTitle">Lo más buscado</h1>
             <div className="news__bannerCards">
                 <Link to="/inicio/Salud/Urgencia">
-                    <div className="news__bannerItems"  onClick={() => { setPathName(RLink.SALUD) }}>
+                    <div className="news__bannerItems" onClick={() => { setPathName(RLink.SALUD) }}>
                         <h4>Urgencia Medica</h4>
                         <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
                     </div>
@@ -45,22 +45,30 @@ const News = () => {
                         <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>
-                <div className="news__bannerItems">
-                    <h4>Renovación PEP</h4>
-                    <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
-                </div>
-                <div className="news__bannerItems">
-                    <h4>Afiliación a la Salud</h4>
-                    <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
-                </div>
-                <div className="news__bannerItems">
-                    <h4>Homologación de Titulos</h4>
-                    <img src="/icons/educacion.png" className="news__bannerItems__icon" alt="" />
-                </div>
-                <div className="news__bannerItems">
-                    <h4>Educación de menores</h4>
-                    <img src="/icons/educacion.png" className="news__bannerItems__icon" alt="" />
-                </div>
+                <Link to="/inicio/Ruta_Migratoria/RenovarPEP">
+                    <div className="news__bannerItems" onClick={() => { setPathName(RLink.MIGRACION) }}>
+                        <h4>Renovación PEP</h4>
+                        <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
+                    </div>
+                </Link>
+                <Link to="/inicio/Salud/afiliacion" onClick={() => { setPathName(RLink.SALUD) }}>
+                    <div className="news__bannerItems">
+                        <h4>Afiliación a la Salud</h4>
+                        <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
+                    </div>
+                </Link>
+                <Link to="/inicio/Educacion/Homologacion_Titulos" onClick={() => { setPathName(RLink.EDUCACION) }}>
+                    <div className="news__bannerItems">
+                        <h4>Homologación de Titulos</h4>
+                        <img src="/icons/educacion.png" className="news__bannerItems__icon" alt="" />
+                    </div>
+                </Link>
+                <Link to="/inicio/Educacion/basica" onClick={() => { setPathName(RLink.EDUCACION) }}>
+                    <div className="news__bannerItems">
+                        <h4>Educación para menores</h4>
+                        <img src="/icons/educacion.png" className="news__bannerItems__icon" alt="" />
+                    </div>
+                </Link>
 
             </div>
 

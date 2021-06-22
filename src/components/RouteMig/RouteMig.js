@@ -47,9 +47,11 @@ const RouteMig = () => {
                 <div className="news__bannerItems">
                     <h4>Registro extranjero menor de 7 años</h4>
                 </div>
-                <div className="news__bannerItems">
-                    <h4>Renovación PEP</h4>
-                </div>
+                <Link to="/inicio/Ruta_Migratoria/RenovarPEP">
+                    <div className="news__bannerItems">
+                        <h4>Renovación PEP</h4>
+                    </div>
+                </Link>
                 <div className="news__bannerItems">
                     <h4>Pasaporte</h4>
                 </div>
