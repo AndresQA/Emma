@@ -23,7 +23,7 @@ const Register = (props) => {
                     <h1 className="register__ltitle">Registrate </h1>
                     <div className="register__buttons">
                         <TextField id="outlined-basic" label="Nombre completo" variant="outlined" value={user} onChange={e => setUser(e.target.value)} />
-                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)} />
+                        <TextField id="outlined-basic" label="Correo electrónico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)} />
                         <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" value={password} onChange={e => setPassword(e.target.value)} />
                         <div className="boton">
                             <Link to="/inicio">

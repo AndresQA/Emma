@@ -20,7 +20,7 @@ const Home = () => {
                                 padding: "16px",
                                 width: "180px"
                             }}>
-                                Registrate
+                                Regístrate
             </Button>
                         </Link>
 
@@ -48,7 +48,7 @@ const Home = () => {
             <div className="home__r">
                 <div className="home__rInfo">
                     <h1>¡Hola, soy EMMA!</h1>
-                    <p> Te guiare durante todo tu camino de regulación migratoria. </p>
+                    <p> Te guiaré durante todo tu camino de regulación migratoria. </p>
                 </div>
                 <img src="/images/emmaAsis.png" alt="" className="home__rEmma"></img>
             </div>

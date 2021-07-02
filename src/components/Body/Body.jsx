@@ -61,7 +61,7 @@ const Sidebar = () => {
                 <div className={"index__contentLeftMenu__item" + (pathName.includes("Ruta_Migratoria") ? " menuselected" : "")}>
                     <div>
                         <FlagIcon style={{ color: "#ffffffc7" }}></FlagIcon>
-                        <p>Tu Ruta</p>
+                        <p>Tu ruta</p>
                     </div>
                 </div>
             </Link>

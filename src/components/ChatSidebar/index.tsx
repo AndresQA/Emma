@@ -94,7 +94,7 @@ const ChatSidebar = () => {
                     </ul>
                     <div className="ChatSidebar__container__body__acciones">
                         <div className="ChatSidebar__container__body__acciones__container">
-                            <input className="ChatSidebar__container__body__acciones__container__input" ref={refInput} type="text" placeholder="Preguntale a emma" />
+                            <input className="ChatSidebar__container__body__acciones__container__input" ref={refInput} type="text" placeholder="Pregúntale a Emma" />
                             <Button className="ChatSidebar__container__body__acciones__container__send"
                                 variant="contained"
                                 color="primary"

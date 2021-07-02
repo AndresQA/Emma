@@ -17,7 +17,7 @@ const Login = (props) => {
                     <h1 className="register__ltitle">Iniciar Sesión</h1>
                     <div className="register__buttons">
 
-                        <TextField id="outlined-basic" label="Correo electronico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)} />
+                        <TextField id="outlined-basic" label="Correo electrónico" variant="outlined" value={email} onChange={e => setEmail(e.target.value)} />
                         <TextField id="outlined-password-input" type="password" label="Contraseña" variant="outlined" value={password} onChange={e => setPassword(e.target.value)} />
                         <div className="boton">
                             <Button variant="contained" color="secondary" onClick={handleLogin} style={{

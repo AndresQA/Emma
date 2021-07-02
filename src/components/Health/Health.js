@@ -25,7 +25,7 @@ const Health = () => {
             <div className="news__bannerCards">
                 <Link to="/inicio/Salud/Urgencia">
                     <div className="news__bannerItems">
-                        <h4>Urgencia Medica</h4>
+                        <h4>Urgencia médica</h4>
                         <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>

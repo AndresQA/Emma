@@ -31,7 +31,7 @@ const Education = () => {
                 </Link>
                 <Link to="/inicio/Educacion/Homologacion_Titulos">
                     <div className="news__bannerItems">
-                        <h4>Homologación Titulos</h4>
+                        <h4>Homologación titulos</h4>
                     </div>
                 </Link>
                 <div className="news__bannerItems">

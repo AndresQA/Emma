@@ -35,9 +35,11 @@ const RouteMig = () => {
 
             <h1>Tramites para migrantes regulares</h1>
             <div className="news__bannerCards">
-                <div className="news__bannerItems">
-                    <h4>Cédula de extranjería</h4>
-                </div>
+                <Link to="/inicio/Ruta_Migratoria/Cedula_de_extranjeria">
+                    <div className="news__bannerItems">
+                        <h4>Cédula de extranjería</h4>
+                    </div>
+                </Link>
                 <div className="news__bannerItems">
                     <h4>Salvoconducto</h4>
                 </div>

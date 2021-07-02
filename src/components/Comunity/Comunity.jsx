@@ -17,7 +17,7 @@ const Map = () => {
         setDataMapsComunity("");
     }, [])
     return (
-        <GoogleMap defaultZoom={13} defaultCenter={{
+        <GoogleMap defaultZoom={12} defaultCenter={{
             lat: 3.412414505047919,
             lng: -76.52585785099772
         }}
@@ -86,6 +86,7 @@ const Comunity = () => {
             {onShowBoard ? <Onboarding /> : <></>}
 
             <h1>Comunidad</h1>
+            <p>Aquí encontraras diferentes organizaciones y grupos de apoyo dispuestos a ayudar e informar al migrante en el territorio colombiano.</p>
 
             <WrappedMap
                 googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDtYBdEwc_JoqUrA-GDkOwmv-K0YVrAoAw"}

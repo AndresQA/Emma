@@ -20,7 +20,7 @@ const Header = () => {
 
     return <div className={"Header" + (style.header === "FLOAT" ? " float" : "")}>
         <img className="Header__logo" src="/images/logo.png" alt="logo" />
-        {login === true ? <p className="singOut" onClick={handleLogOut}>Cerrar Sesion</p> : <></>}
+        {login === true ? <p className="singOut" onClick={handleLogOut}>Cerrar sesión</p> : <></>}
     </div>
 }
 

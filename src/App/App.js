@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Home from '../pages/Home/Home';
 import Register from '../pages/Register/Register';
-import Resume from '../Resume/Resume';
 import Login from '../pages/Login/Login';
 import { HashRouter as Router, Route, link, Redirect, useHistory, BrowserRouter, Switch } from 'react-router-dom';
 import Index from '../pages/Main/Main';
@@ -174,7 +173,6 @@ const RouterConfig = () => {
     {isLoging !== undefined ? <>
       <Route exact path="/" component={Home} />
       <Route path="/registro" render={() => <Register email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleSignUp={handleSignUp} />} />
-      <Route path="/resumen" component={Resume} />
       <Route path="/iniciarSesion" render={() => <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} isLoging={isLoging} setIsLogin={setIsLogin} />} />
       <Route path="/inicio" component={Index} />
 

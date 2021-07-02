@@ -87,11 +87,11 @@ const HealthMap = () => {
         case 0:
             return <div className="comunity">
                
-                <h1>Urgencia Medica</h1>
+                <h1>Urgencia médica</h1>
                 <div className="formDescription">
                     <div className="formDescription__info">
                         <div>
-                            <h3>¿Qué es una Urgencia médica?</h3>
+                            <h3>¿Qué es una urgencia médica?</h3>
                             <p>Una urgencia es una alteración a tu integridad física o mental. Esta puede estar causada por un accidente, enfermedad o cualquier otro motivo por el cual requieras atención medica inmediata para disminuir los riesgos de invalidez y muerte. Debes acudir al hospital publico mas cercano para recibir atención.
                                 <br />
                                 A continuación te mostramos un mapa con los hospitales públicos mas cercanos a los cuales acudir </p>

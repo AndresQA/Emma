@@ -26,13 +26,48 @@ const FormRouteMig = () => {
     const [type, Step] = useFaq();
     const [onCompleted, setCompleted] = useCompleted();
 
+    const city = [
+        'AMAZONAS',
+        'ANTIOQUIA',
+        'ARAUCA',
+        'ATLÁNTICO',
+        'BOLÍVAR',
+        'BOYACÁ',
+        'CALDAS',
+        'CAQUETÁ',
+        'CASANARE',
+        'CAUCA',
+        'CESAR',
+        'CHOCÓ',
+        'CÓRDOBA',
+        'CUNDINAMARCA',
+        'DISTRITO CAPITAL',
+        'GUAINÍA',
+        'GUAVIARE',
+        'HUILA',
+        'LA GUAJIRA',
+        'MAGDALENA',
+        'META',
+        'NARIÑO',
+        'NORTE DE SANTANDER',
+        'PUTUMAYO',
+        'QUINDÍO',
+        'RISARALDA',
+        'SANTANDER',
+        'SUCRE',
+        'TOLIMA',
+        'VALLE',
+        'VAUPÉS',
+        'VICHADA',
+    ];
+
     useEffect(() => {
         setNombre(User.information.nombre)
         setDataForms({ ...dataForms, nombreSolicitante: User.information.nombre })
     }, [isLoging])
 
     useEffect(() => {
-        
+
         if (pageRouteMig == 0) {
             Step("Notification");
         } else {
@@ -117,7 +152,7 @@ const FormRouteMig = () => {
 
     const handleFinishForm = () => {
         handlePageChange(4)
-         setCompleted(true)
+        setCompleted(true)
     }
 
     switch (page) {
@@ -146,25 +181,25 @@ const FormRouteMig = () => {
                         </div>
                         <div className="ident">
                             <p>Número de cédula de identidad venezolana</p>
-                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeCedulaPersona} />
+                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeCedulaPersona} value={cedulaPersona} />
                         </div>
                     </div>
 
                     <div className="formRow">
                         <div className="tel">
-                            <p>Telefono</p>
-                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" onChange={handleChangeTelefono} />
+                            <p>Teléfono</p>
+                            <TextField className="fullName__textfield" id="outlined-basic" variant="outlined" onChange={handleChangeTelefono} value={telefono} />
                         </div>
                         <div className="email">
-                            <p>Correo electronico del solicitante</p>
-                            <TextField className="emailinput" id="outlined-basic" variant="outlined" onChange={handleChangeCorreoSolicitante} />
+                            <p>Correo electrónico del solicitante</p>
+                            <TextField className="emailinput" id="outlined-basic" variant="outlined" onChange={handleChangeCorreoSolicitante} value={correoSolicitante} />
                         </div>
                     </div>
 
                     <div className="formRow">
                         <div className="email">
                             <p>Dirección de residencía</p>
-                            <TextField className="emailinput" id="outlined-basic" variant="outlined" onChange={handleChangeDireccionResidencia} />
+                            <TextField className="emailinput" id="outlined-basic" variant="outlined" onChange={handleChangeDireccionResidencia} value={direccionResidencia} />
                         </div>
                     </div>
 
@@ -184,9 +219,11 @@ const FormRouteMig = () => {
                                     <MenuItem value="">
                                         <em>Seleccionar</em>
                                     </MenuItem>
-                                    <MenuItem value={"Opcion A"}>Opcion A</MenuItem>
-                                    <MenuItem value={"Opcion B"}>Opcion B</MenuItem>
-                                    <MenuItem value={"Opcion C"}>Opcion C</MenuItem>
+                                    <MenuItem value={"Control migratorio"}>Control migratorio</MenuItem>
+                                    <MenuItem value={"Trocha"}>Trocha</MenuItem>
+                                    <MenuItem value={"Autobus"}>Autobus</MenuItem>
+                                    <MenuItem value={"Avión"}>Avión</MenuItem>
+                                    <MenuItem value={"Barco"}>Barco</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>
@@ -204,9 +241,9 @@ const FormRouteMig = () => {
                                     <MenuItem value="">
                                         <em>Seleccionar</em>
                                     </MenuItem>
-                                    <MenuItem value={10}>Nariño</MenuItem>
-                                    <MenuItem value={20}>Cucuta</MenuItem>
-                                    <MenuItem value={30}>Santander</MenuItem>
+                                    {city.map((city) => (
+                                        <MenuItem value={city}>{city}</MenuItem>
+                                    ))}
                                 </Select>
                             </FormControl>
                         </div>
@@ -247,19 +284,21 @@ const FormRouteMig = () => {
                     <h4>Beneficiarios</h4>
                     <hr />
 
+                    <p>Como beneficiaros se entienden personas miembros de su grupo familiar (Pareja, hijos, sobrinos, padres, etc.) que se encuentren en el territorio colombiano con usted. Si no cuentas con un beneficiario, presiona el botón de SIGUIENTE. </p>
+
                     <div className="formRow">
                         <div className="fullName">
                             <p>Nombre completo del Beneficiario</p>
                             <TextField className="fullName__textfield" id="outlined-basic" variant="outlined"
-                                placeholder="Ej: Michael Rojas" onChange={handleChangeNombreBeneficiario} />
+                                placeholder="Ej: Michael Rojas" onChange={handleChangeNombreBeneficiario} value={nombreBeneficiario} />
                         </div>
                         <div className="">
                             <p>Número de identificacion venezolana</p>
-                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeIdBeneficiario} />
+                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeIdBeneficiario} value={idBeneficiario} />
                         </div>
                         <div className="">
                             <p>Edad</p>
-                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeEdadBeneficiario} />
+                            <TextField id="outlined-basic" variant="outlined" onChange={handleChangeEdadBeneficiario} value={edadBeneficiario} />
                         </div>
 
                     </div>
@@ -275,14 +314,16 @@ const FormRouteMig = () => {
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
                                     value={formaIngresoBeneficiario}
-                                    onChange={handleChangeFormaIngreso}
+                                    onChange={handleChangeFormaIngresoBeneficiario}
                                 >
                                     <MenuItem value="">
                                         <em>Seleccionar</em>
                                     </MenuItem>
-                                    <MenuItem value={"Opcion A"}>Opcion A</MenuItem>
-                                    <MenuItem value={"Opcion B"}>Opcion B</MenuItem>
-                                    <MenuItem value={"Opcion C"}>Opcion C</MenuItem>
+                                    <MenuItem value={"Control migratorio"}>Control migratorio</MenuItem>
+                                    <MenuItem value={"Trocha"}>Trocha</MenuItem>
+                                    <MenuItem value={"Autobus"}>Autobus</MenuItem>
+                                    <MenuItem value={"Avión"}>Avión</MenuItem>
+                                    <MenuItem value={"Barco"}>Barco</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>
@@ -300,9 +341,9 @@ const FormRouteMig = () => {
                                     <MenuItem value="">
                                         <em>Seleccionar</em>
                                     </MenuItem>
-                                    <MenuItem value={10}>Opcion A</MenuItem>
-                                    <MenuItem value={20}>Cucuta</MenuItem>
-                                    <MenuItem value={30}>Opcion C</MenuItem>
+                                    {city.map((city) => (
+                                        <MenuItem value={city}>{city}</MenuItem>
+                                    ))}
                                 </Select>
                             </FormControl>
                         </div>
@@ -330,7 +371,8 @@ const FormRouteMig = () => {
                     <div className="addBenButton">
                         <Button className="addBenBtn" startIcon={<AddIcon />} variant="contained">Agregar Beneficiario</Button>
                     </div>
-                    <div className="lastButton">
+                    <div className="lastButton__twoBtn">
+                        <Button className="nextBtn" onClick={() => handlePageChange(1)} variant="contained">Atras</Button>
                         <Button className="nextBtn" onClick={() => handlePageChange(3)} variant="contained">Siguiente</Button>
                     </div>
 
@@ -361,7 +403,7 @@ const FormRouteMig = () => {
                     />
                 </div>
                 {beneficiarioNull ? <div>
-                    <h4>Beneficiario</h4>
+                    <h4>Documentos del beneficiario</h4>
                     <hr />
                     <div className="formRouteMig__checks">
                         <FormControlLabel
@@ -381,10 +423,11 @@ const FormRouteMig = () => {
                 </div> : <></>}
 
 
-
-                <div className="lastButton">
+                <div className="lastButton__twoBtn">
+                    <Button className="nextBtn" onClick={() => handlePageChange(2)} variant="contained">Atras</Button>
                     <Button className="nextBtn" onClick={handleFinishForm} variant="contained">Siguiente</Button>
                 </div>
+
 
             </div>
             break;

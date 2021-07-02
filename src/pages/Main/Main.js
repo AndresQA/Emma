@@ -17,6 +17,7 @@ import HealthMap from '../../components/HealthMap/HealthMap';
 import RenovPEP from '../../components/RouteMig/Services/RenovPEP';
 import JoinHealth from '../../components/Health/Services/JoinHealth';
 import Convalidation from '../../components/Education/Services/Convalidation';
+import IdMig from '../../components/RouteMig/Services/IdMig';
 import 'firebase/auth';
 import "./Main.scss";
 
@@ -49,6 +50,7 @@ const Main = () => {
             <Route path="/inicio/Ruta_Migratoria/RenovarPEP" exact component={RenovPEP} />
             <Route path="/inicio/Salud/afiliacion" exact component={JoinHealth} />
             <Route path="/inicio/Educacion/Homologacion_Titulos" exact component={Convalidation} />
+            <Route path="/inicio/Ruta_Migratoria/Cedula_de_extranjeria" exact component={IdMig} />
 
         </div>
             : <Redirect to="/" />

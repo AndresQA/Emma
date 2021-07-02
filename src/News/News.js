@@ -35,13 +35,13 @@ const News = () => {
             <div className="news__bannerCards">
                 <Link to="/inicio/Salud/Urgencia">
                     <div className="news__bannerItems" onClick={() => { setPathName(RLink.SALUD) }}>
-                        <h4>Urgencia Medica</h4>
+                        <h4>Urgencia médica</h4>
                         <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>
                 <Link to="/inicio/Ruta_Migratoria/formulario">
                     <div className="news__bannerItems" onClick={() => { setPathName(RLink.MIGRACION) }}>
-                        <h4>Solicitud de Refugio</h4>
+                        <h4>Solicitud de refugio</h4>
                         <img src="/icons/flag.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>
@@ -53,13 +53,13 @@ const News = () => {
                 </Link>
                 <Link to="/inicio/Salud/afiliacion" onClick={() => { setPathName(RLink.SALUD) }}>
                     <div className="news__bannerItems">
-                        <h4>Afiliación a la Salud</h4>
+                        <h4>Afiliación a la salud</h4>
                         <img src="/icons/salud.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>
                 <Link to="/inicio/Educacion/Homologacion_Titulos" onClick={() => { setPathName(RLink.EDUCACION) }}>
                     <div className="news__bannerItems">
-                        <h4>Homologación de Titulos</h4>
+                        <h4>Homologación de títulos</h4>
                         <img src="/icons/educacion.png" className="news__bannerItems__icon" alt="" />
                     </div>
                 </Link>

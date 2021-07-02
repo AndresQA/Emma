@@ -25,9 +25,9 @@ const FormDescription = () => {
             {showBoarding ?  <div className="boarding">
                 <div className="boarding__Container">
                     <img src="/images/boarding6.png" alt="" />
-                    <h2>¡Hagamos juntos la solicitud de refugio!</h2>
+                    <h2 className="onBoardTitle">¡Hagamos juntos la solicitud de refugio!</h2>
                     <p>A continuación, te realizare una encuesta preguntándote diferentes datos personales para completa tu solicitud de refugio. 
-                        <strong> ESTOS DATOS NO SE ALMACENARAN Y SOLO SE UTILIZARAN PARA REALIZAR LA SOLICITUD</strong>. </p>
+                        <strong> Estos datos no se almacenarán y solo se utilizaran para realizar la solicitud</strong>. </p>
                     <Button className="formDescription__info__btn" key="2" variant="contained" color="primary" onClick={handleContinue}>
                         Entendido
                      </Button>

@@ -26,8 +26,8 @@ const Onboarding = () => {
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding1.png" alt="" />
-                    <h2>Inicio</h2>
-                    <p>Hola, en mi plataforma principal encontraras los servicios mas solicitados por todos, además recibirás notificaciones y las ultimas noticias. También puedes hablar conmigo mediante mi chat virtual.  </p>
+                    <h2 className="onBoardTitle">Inicio</h2>
+                    <p>Hola, en mi plataforma principal encontrarás los servicios mas solicitados por todos. Además recibirás notificaciones y las últimas noticias. También puedes hablar conmigo mediante mi chat virtual.</p>
                     <div className="progress">
                         <div className="progress__dot selected__dot"></div>
                         <div className="progress__dot"></div>
@@ -53,8 +53,8 @@ const Onboarding = () => {
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding2.png" alt="" />
-                    <h2>Tu ruta</h2>
-                    <p>Aquí encontraras los diferentes tramites en el caso de que seas un migrante irregular o regular.</p>
+                    <h2 className="onBoardTitle">Tu ruta</h2>
+                    <p>Aquí encontrarás los diferentes trámites en el caso de que seas un migrante irregular o regular.</p>
                     <div className="progress">
                         <div className="progress__dot"></div>
                         <div className="progress__dot selected__dot"></div>
@@ -80,8 +80,8 @@ const Onboarding = () => {
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding3.png" alt="" />
-                    <h2>Salud</h2>
-                    <p>¿Tienes alguna urgencia? ¿ya te afiliaste al sistema de salud colombiano o al menos sabes cómo funciona? Aquí te indicare las instituciones a las cuales acudir. </p>
+                    <h2 className="onBoardTitle">Salud</h2>
+                    <p>¿Tienes alguna urgencia? ¿ya te afiliaste al sistema de salud colombiano o al menos sabes cómo funciona? Aquí te indicaré las instituciones a las cuales acudir. </p>
                     <div className="progress">
                         <div className="progress__dot"></div>
                         <div className="progress__dot"></div>
@@ -107,8 +107,8 @@ const Onboarding = () => {
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding4.png" alt="" />
-                    <h2>Educación</h2>
-                    <p>Aquí te explicare como ingresar a la educación en Colombia, desde la educación básica primaria, pasando por la media, hasta educación universitaria.</p>
+                    <h2 className="onBoardTitle">Educación</h2>
+                    <p>Aquí te explicaré cómo ingresar a la educación en Colombia, desde la educación básica primaria, pasando por la media, hasta educación universitaria.</p>
                     <div className="progress">
                         <div className="progress__dot"></div>
                         <div className="progress__dot"></div>
@@ -134,7 +134,7 @@ const Onboarding = () => {
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding5.png" alt="" />
-                    <h2>Espacio Jurídico</h2>
+                    <h2 className="onBoardTitle">Espacio Jurídico</h2>
                     <p>Es importante que conozcas tus derechos, este espacio es exclusivamente dedicado a ti, te orientamos en trámites y procesos.</p>
                     <div className="progress">
                         <div className="progress__dot"></div>
@@ -161,8 +161,8 @@ const Onboarding = () => {
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding6.png" alt="" />
-                    <h2>Comunidad </h2>
-                    <p>Es importante conocer a tu comunidad. Aquí encontraras un mapa con diferentes grupos de apoyo y asistencia a la población migrante para que te sientas siempre acompañado. </p>
+                    <h2 className="onBoardTitle">Comunidad </h2>
+                    <p>Es importante conocer a tu comunidad. Aquí encontrarás un mapa con diferentes grupos de apoyo y asistencia a la población migrante para que te sientas siempre acompañado. </p>
                     <div className="progress">
                         <div className="progress__dot"></div>
                         <div className="progress__dot"></div>
@@ -185,7 +185,7 @@ const Onboarding = () => {
                         <img src="/icons/close.svg" alt="" />
                     </div>
                     <img src="/images/boarding3.png" alt="" />
-                    <h2>Bienvenidos y bienvenidas</h2>
+                    <h2 className="onBoardTitle">Bienvenidos y bienvenidas</h2>
                     <p>Por último, te doy la bienvenida, espero ayudarte a solucionar tus problemas migratorios.</p>
                     <Link to="/inicio" onClick={() => { setPathName(RLink.INICIO, setShowBoard(false)) }}>
                         <Button className="formDescription__info__btn" key="2" variant="contained" color="primary" onClick={() => { setPathName(RLink.INICIO, setShowBoard(false)) }}>
